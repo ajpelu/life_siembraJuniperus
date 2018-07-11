@@ -17,15 +17,27 @@
 
 * ver datos en /field_work/siembra_enebros/2017_11_09_BERCHULES (drive)
 
+## 05/05/2017 
+* Instalación jaulas de siembra en Haza Mesa. Réplica 3 
+* JMBA, RAC, AJPL, Antonio Veredas, Miguel Arrufat 
+* Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [./sensores/sensores_jaula.md](./sensores/sensores_jaula.md)
+
+## 03/05/2017 
+
+* Instalación jaulas de siembra en Haza Mesa. Réplica 1 y 2. 
+* RZ, JMBA, JCano, AJPL, FJBG, RMLL, Mayka, JaviCarretero, Nano, Miguel Galiana, ? 
+* Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [./sensores/sensores_jaula.md](./sensores/sensores_jaula.md)
+
 ## 24/04/2017 
 
-* Instalación jaulas de siembra en Bérchules
+* Instalación jaulas de siembra en Bérchules. Réplica 5 (B5, R5, P5)
 * JMBA, JCano, AJPL
 * Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [./sensores/sensores_jaula.md](./sensores/sensores_jaula.md)
 
 
 ## 18/04/2017 
 
-* Instalación jaulas de siembra en Bérchules 
+* Instalación jaulas de siembra en Bérchules. Réplica 4 (B4, R4, P4)
 * RZ, JMBA, JMMM, AJPL
+
 
