@@ -21,7 +21,7 @@
 
 * Instalación jaulas de siembra en Bérchules
 * JMBA, JCano, AJPL
-* Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [../sensores/sensores_jaula.md](../sensores/sensores_jaula.md)
+* Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [./sensores/sensores_jaula.md](./sensores/sensores_jaula.md)
 
 
 ## 18/04/2017 
