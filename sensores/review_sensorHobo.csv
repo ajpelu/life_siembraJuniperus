@@ -1,0 +1,6 @@
+date,idHobo,idJaula,bateria,memoria,status,obs
+31/07/2018,P27,P110,60,25,OK,descarga datos ver hobo_raw files
+31/07/2018,P21,R110,80,25,OK,descarga datos ver hobo_raw files
+31/07/2018,P66,B101,1,25,OK,descarga datos ver hobo_raw files
+31/07/2018,P4,E110,93,25,OK,descarga datos ver hobo_raw files
+31/07/2018,LANP33,G110,86,25,OK,descarga datos ver hobo_raw files
