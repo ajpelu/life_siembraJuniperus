@@ -1,5 +1,21 @@
 # Diario de campo
 
+# 31/07/2018 
+* Visita de campo a la acequia de Haza Mesa.
+* AJPL
+* Reetiquetado de algunas jaulas
+* Revisión de germinación y supervivencia
+
+### Notas 
+* Borreguiles con mucha precensia de ganado
+* Es necesario reponer algunas jaulas
+* Varios jaulas no se encuentran. 
+* Descarga de algunos datos de sensores hobo:
+
+    * ver datos `.hobo` en [./sensores/review_sensorHobo.csv](./sensores/review_sensorHobo.csv)
+    * datos raw (formato `.hobo`) en [./sensores/hoboRaw](./sensores/hoboRaw]) 
+* Ojo el sensor P66 situado en la jaula B11 tiene 1 % de batería. Preguntar a Fran como se puede reponer la bateria
+
 # 09/11/2017 
 
 * Visita a acequia de Bérchules para primera revisión de siembras tras el primer verano
