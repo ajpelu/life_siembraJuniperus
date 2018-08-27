@@ -1,0 +1,127 @@
+﻿Detalles
+Series: Temp, *C
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Temperatura, *C
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Intervalo de registro: 01 h 00 min 00 seg
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+		- Programa Comenzando: HOBOware Pro-3.7.9_1028_1025_Windows
+	Estadísticas de serie
+		- Muestras: 10.921
+		- Máx.: 48,139
+		- Mín: -7,640
+		- Prom: 9,249
+		- Desv estand (σ): 9,855
+		- Hora de la primera muestra: 05/02/17 12:55:01 PM GMT+02:00
+		- Hora de última muestra: 07/31/18 12:55:01 PM GMT+02:00
+Tipo de evento: Acoplador separado
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Acoplador separado
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+	Estadísticas de serie
+		- Muestras: 1
+		- Hora de la primera muestra: 05/02/17 12:55:16 PM GMT+02:00
+		- Hora de última muestra: 05/02/17 12:55:16 PM GMT+02:00
+Tipo de evento: Batería mala
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Batería mala
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+	Estadísticas de serie
+		- Muestras: 1
+		- Hora de la primera muestra: 06/08/17 02:55:01 PM GMT+02:00
+		- Hora de última muestra: 06/08/17 02:55:01 PM GMT+02:00
+Tipo de evento: Acoplador adjunto
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Acoplador adjunto
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+	Estadísticas de serie
+		- Muestras: 1
+		- Hora de la primera muestra: 07/31/18 01:50:18 PM GMT+02:00
+		- Hora de última muestra: 07/31/18 01:50:18 PM GMT+02:00
+Tipo de evento: Host conectado
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Host conectado
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+	Estadísticas de serie
+		- Muestras: 1
+		- Hora de la primera muestra: 07/31/18 01:50:19 PM GMT+02:00
+		- Hora de última muestra: 07/31/18 01:50:19 PM GMT+02:00
+Tipo de evento: Final de archivo
+	Dispositivos
+		Info de dispositivo
+			- Producto: HOBO UTBI-001 TidbiT Temp
+			- Número de serie: 9695077
+			- Número de versión: 0.00
+			- Fabricante: Onset Computer Corporation
+			- Memoria del dispositivo: 65536
+			- Encabezado creado: 02/02/10 05:36:37 PM GMT+02:00
+	Info de implementación
+		- Nombre de serie completo: Final de archivo
+		- Iniciar descripción: P66
+		- Número de implementación: 7
+		- Tiempo de inicio: 05/02/17 12:55:00 PM GMT+02:00
+		- Iniciar desplazamiento GMT: 2 h 0 min
+		- Batería al inicio: 2,92 Voltios
+	Estadísticas de serie
+		- Muestras: 1
+		- Hora de la primera muestra: 07/31/18 01:50:19 PM GMT+02:00
+		- Hora de última muestra: 07/31/18 01:50:19 PM GMT+02:00
