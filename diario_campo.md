@@ -1,5 +1,22 @@
 # Diario de campo
 
+# 02/08/2018
+* Acequia de Bérchules
+* Juan Reyes, JMBA, JMMuñoz, Javier Cabello, Javier Sánchez, Guarda Berchules, AJPL
+* Revisión germinación, supervivencia y descarga datos hobo
+
+### Notas
+* En el pastizal P4 hay 11 jaulas. 
+* En Borreguil B5:
+  * B53 Comprobar localización
+  * B55 No aparece
+  * B58 No aparece 
+* Proxima salida comprobar localización con GPS
+* Descarga de algunos datos de sensores hobo:
+    * ver datos `.hobo` en [./sensores/review_sensorHobo.csv](./sensores/review_sensorHobo.csv)
+    * datos raw (formato `.hobo`) en [./sensores/hoboRaw](./sensores/hoboRaw]) 
+* Ojo el sensor P26 situado en la jaula P404 no se ha podido leer. El aparato no lo leía 
+
 # 31/07/2018 
 * Visita de campo a la acequia de Haza Mesa.
 * AJPL
