@@ -19,3 +19,26 @@
 | R403 (R103)        | P43      | Berchules | ROCA          | 4(1)       | 2017/04/24 |
 | P404 (P104)        | P26      | Berchules | PASTIZAL      | 4(1)       | 2017/04/24 |
 | B410 (B110)        | P22      | Berchules | BORREGUIL     | 4(1)       | 2017/04/24 |
+
+
+# Descarga de datos desde HOBOWare Pro
+
+Ajustamos preferencias en el software HOBOWarePro para la exportación de datos del formato `.hobo` a `.csv`
+
+* Export type: `.txt or .csv`
+* sep: `,`  (comma)
+* [x] Separate data and time into two columns
+* [x] No quotes or commas in headings, properties in parentheses
+* [x] Include sensore serial number of label if available 
+* Date format: DMY (28/08/18)
+* Date separator: Slash (/)
+* Time format: 24-Hour 
+* Positive number format: 1,234.56
+* Negative number format: -123
+
+Usar la herramienta (plugin) ***Bulk export*** para exportar todos los archivos 
+
+
+
+
+
