@@ -1,0 +1,114 @@
+---
+title: "Untitled"
+author: "Antonio J. Pérez-Luque"
+date: "8/27/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library("here")
+library("data.table")
+library("stringr")
+library("tidyverse")
+
+
+
+# Read files 
+p <- ".*csv$"
+
+f <- list.files(here::here("sensores/hoboRaw"), pattern= p, full.names = TRUE)
+
+
+
+
+
+
+# get name of sensor 
+hoboName <-read_csv(f[1], header = F, nrows = 1, as.is = TRUE) 
+
+for(i in 1:14){ 
+  taux <- read_csv(f[i], na='')
+  
+  # Get the name of the sensor and Serial Number
+  sensor_name <- str_remove(basename(f[i]), "\\.csv")
+  
+  name_sn <- names(dplyr::select(taux, starts_with("Temp")))
+  serial <- str_extract(name_sn, "\\d+")
+  
+  # Rename variables
+  taux <- taux %>% 
+    rename_all(.funs = funs(str_remove_all(names(taux), "\\d+|[:space:]|[#]"))) %>% 
+    rename_at(vars(starts_with("Temp")), funs(paste0("Temp")))
+  
+  # Create new variables
+  
+  
+  
+  assign(sensor_name, taux)
+  
+}
+
+
+
+
+taux <- mutate(flag = case_when(
+  BadBattery == "Logged" & is.na(GoodBattery) ~ '1',
+  TRUE 
+))
+
+
+
+tt <- P4
+
+rt <- tt %>% 
+  rename_all(.funs = funs(str_remove_all(names(tt), "\\d+|[:space:]|[#]"))) %>% 
+  rename_at(vars(starts_with("Temp")), funs(paste0("Temp")))
+
+
+
+Coupler Detached
+
+# Get name of variables 
+n <- names(tt)
+
+Detached
+test <-  "Host Connected  #9761922"
+
+str_extract(names(tt))
+
+
+
+
+
+
+
+
+
+
+
+x <- rename
+
+
+
+
+
+
+t1 <- read.csv(f[2])
+names(t1)
+read
+
+## Get name of sensor (from name file)
+sensor_name <- str_remove(basename(f[1]), "\\.csv")
+
+
+
+
+
+            
+
+```
