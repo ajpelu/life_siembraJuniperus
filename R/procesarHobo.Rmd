@@ -29,7 +29,7 @@ f <- list.files(here::here("sensores/hoboRaw"), pattern= p, full.names = TRUE)
 
 
 # get name of sensor 
-hoboName <-read_csv(f[1], header = F, nrows = 1, as.is = TRUE) 
+# hoboName <-read_csv(f[1], header = F, nrows = 1, as.is = TRUE) 
 
 for(i in 1:14){ 
   taux <- read_csv(f[i], na='')
@@ -45,16 +45,189 @@ for(i in 1:14){
     rename_all(.funs = funs(str_remove_all(names(taux), "\\d+|[:space:]|[#]"))) %>% 
     rename_at(vars(starts_with("Temp")), funs(paste0("Temp")))
   
-  # Create new variables
-  
-  
-  
+  # Create new variables if they do not exist 
+  taux <- taux %>% mutate(
+    GoodBattery = if ("GoodBattery" %in% names(.)){ return(GoodBattery)}else{return(NA)},
+    BadBattery = if ("BadBattery" %in% names(.)){ return(BadBattery)}else{return(NA)}
+    )
+
   assign(sensor_name, taux)
   
 }
 
 
 
+
+
+
+
+
+# Fogollon padre para validar (seguro que es una chorrada)
+
+t <- P27
+t <- t[3103:3133,]
+
+
+
+tr <- t %>% mutate(
+  # gB = if_else(is.na(GoodBattery), 1, 0),
+  test = if_else(is.na(BadBattery),
+               if_else(is.na(GoodBattery),1,-99)
+               
+               ,99)) 
+
+contraya <- function(x){ 
+  for (i in 1:length(x)) {
+    x[i] <- x[i]*x[i-1]
+  }
+  return(x)
+}
+
+g <- c(99,1,1,1,-99,1,1,1,99)
+contraya(g)
+
+trr <- tr %>% mutate(
+  final = contraya(test))
+
+
+tr <<- tr %>% mutate(f = cumprod(test))
+
+ro <- rollify(.f = ~cumprod(.x), window = 1)
+
+
+trr <- tr %>% mutate(la = ro(test))
+
+
+
+
+library("magrittr")
+
+
+out2 <- tr %>% 
+  group_by(index_events = rle(test) %>% extract2("lengths") %>% rep(seq_along(.), .)) %>% 
+  mutate(drought_duration = sum(test)) %>% 
+  as.data.frame()
+
+
+
+
+  t2 = test*lag(test,1)) 
+                
+
+
+g <- rle(tr$bB)
+rle(t$f1)
+
+
+ro <- rollify(.f = ~sum(.x), window = 2)
+
+
+trr <- tr %>% mutate(la = ro(bB))
+
+  flag = gB + bB)
+
+
+t$f1 <- ifelse(
+  !is.na(t$BadBattery), 1, 
+  0) 
+
+
+
+
+
+
+
+
+
+if (!is.na(t$BadBattery)) { 
+  t$f1 <- 1
+  } else { 
+    if (lag(t$f1, 1) > 0 && is.na(t$GoodBattery)) { 
+      t$f1 <- 1
+    } else { 
+        t$f1 <- 0 
+        } 
+  }
+  
+  
+
+trr <- t %>% 
+  mutate(f1 = if_else(!is.na(BadBattery), 1, 0)) %>% 
+  mutate(f2 = if_else(
+                  lag(f1, 1) > 0 & is.na(GoodBattery), 1, 0))
+                  
+                  
+                  if_else(is.na(GoodBattery), 1, 0),1))
+
+t$f1 <- ifelse(!is.na(t$BadBattery), 1, 0)   
+
+for 
+
+
+temporal <- rle(t$f1)
+nueva <- rep(temporal$lengths > 1, times = temporal$lengths)
+trr <- cbind(t,nueva)
+
+
+
+
+tr <- t %>% mutate(
+  lll = ifelse
+)
+
+
+
+for (i in 1:length(nrow(t))) { 
+  
+  
+  
+  t[i,t$f1] <- if_else(is.na(t$BadBattery), 1, 0)
+  }
+  
+    
+u <- rle(t$BadBattery)               
+  
+
+  )
+  
+  if (lag(t$f1, 1) > 0) {
+    } else{ }
+    
+    
+    if (is.na(t$GoodBattery)) { 
+      t$f1 <- 1
+    }} 
+  t$f1 <- 0  
+    
+
+
+w <- function(a){
+if (any(a>0)){
+  a/sum(a)
+}
+  else 1
+}
+
+
+while( 
+  lag(t$f1, 1) > 0 || is.na(t$GoodBattery) 
+) { 
+  t$f2 <- 1 
+  t$f1 <- 1} 
+
+
+t$f2 <- ifelse(
+  (lag(t$f1, 1) > 0) & is.na(t$GoodBattery)
+)
+
+
+t$f2 <- 
+
+
+
+
+
+t <- t[3103:3133,]
 
 taux <- mutate(flag = case_when(
   BadBattery == "Logged" & is.na(GoodBattery) ~ '1',
