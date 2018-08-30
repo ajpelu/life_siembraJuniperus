@@ -1,4 +1,6 @@
 ### Sensores 
+Los sensores que se han puesto de temperatura son data logger [HOBO UTBI-001 TidbiT V2](http://www.onsetcomp.com/products/data-loggers/utbi-001)
+
 * Correspondencia sensores hobbo y jaulas 
 
 | Pto Siembra        | Hobbo id | loc       | microhabitat  | replica    | date       |
