@@ -17,7 +17,7 @@ Los sensores que se han puesto de temperatura son data logger [HOBO UTBI-001 Tid
 | P309 (P709)        | P35      | Haza Mesa | PASTIZAL      | 3(7)       | 2017/05/05 |
 | B504 (B204)        | P39      | Berchules | BORREGUIL     | 5(2)       | 2017/04/24 |
 | R510 (R210)        | X1       | Berchules | ROCA          | 5(2)       | 2017/04/24 |
-| P508 (P208)        | P3       | Berchules | PASTIZAL      | 5(2)       | 2017/04/24 |
+| P508 (P208)        | P33      | Berchules | PASTIZAL      | 5(2)       | 2017/04/24 |
 | R403 (R103)        | P43      | Berchules | ROCA          | 4(1)       | 2017/04/24 |
 | P404 (P104)        | P26      | Berchules | PASTIZAL      | 4(1)       | 2017/04/24 |
 | B410 (B110)        | P22      | Berchules | BORREGUIL     | 4(1)       | 2017/04/24 |

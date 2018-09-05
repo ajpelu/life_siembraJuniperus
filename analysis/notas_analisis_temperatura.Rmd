@@ -1,0 +1,37 @@
+---
+title: "Notas Analisis Temperaturas"
+author: "Antonio J. Pérez-Luque"
+date: "9/3/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+* Si un punto determinado queda o no cubierto por la nieve se puede deducir por la forma que adopta la oscilación térmica diurna (ver Gottfried et al. 1999, Gottfried et al. 2002)
+
+* En contraste con la temperatura aérea, la medida de la temperatura a 10 cm de profundidad nos permite obtener de un modo fácil e invisible un registro continuo muy importante para la vida vegetal.
+
+Lectura de algunos trabajos interesantes sobre regimen alpino de temperaturas:
+
+* https://onlinelibrary.wiley.com/doi/full/10.1046/j.1472-4642.1999.00058.x 
+* http://www.bioone.org/doi/pdf/10.1657/1938-4246-42.1.117
+* https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1749-8198.2010.00356.x 
+
+
+Notas from: Nature Climate Change volume 2, pages 111–115 (2012) 
+Ojo, las temperaturas minimas de Junio: it is the temperature in the first part of the growing period which is most decisive for plant growth (ver Rammig, A., Jonas, T., Zimmermann, N. E. & Rixen, C. Changes in alpine plant
+growth under future climate conditions. Biogeosciences 7, 2013–2024 (2010).)  y p221-226 de Körner, C. Alpine Plant Life: Functional Plant Ecology of High Mountain Ecosystems 2nd edn (Springer, 2003) 
+
+Otra idea: analizar las diferencias entre temperaturas min, max y media mes a mes, para ver el efecto de la nieve. Though temperature was measured in 10cm soil depth, these measurements still
+include some error due to insolation during daytime, whereas they are buffered against insolation
+effects at night. Note that the values for Tmin, Tmean and Tmax are quite similar from November to May.
+Under snow protection there is only little diurnal oscillation of T, therefore, daily maxima and minima
+are not much different. 
+
+
+
+Idea: Documentación de los datos de temperatura obtenidos 
+Idea: Analizar patron de innivación para estos dos sitios (usando google Earth + MODIS )

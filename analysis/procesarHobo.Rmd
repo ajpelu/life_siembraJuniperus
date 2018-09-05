@@ -1,0 +1,226 @@
+---
+title: "Untitled"
+author: "Antonio J. Pérez-Luque"
+date: "8/27/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library("here")
+# library("data.table")
+library("stringr")
+library("tidyverse")
+```
+
+Load specific functions 
+```{r}
+source(here::here('script/R','preparaHobo.R'))
+source(here::here('script/R','validaHobo.R'))
+```
+
+
+```{r}
+# Read files 
+p <- ".*csv$"
+f <- list.files(here::here("sensores/hoboRaw"), pattern= p, full.names = TRUE)
+
+# PreparaHobo
+df <- preparaHobo(f)
+
+# Validate data
+dfv <- validaHobo(df, vnameTemp='Temp')
+
+dfv <- dfv %>% 
+  filter(valid == 1) %>% 
+  dplyr::select("Date","Time","Temp","sensorName")  
+```
+
+```{r}
+# Get sensorNames from hobo 
+sensores <- as.character(unique(dfv$sensorName))
+
+# Read sensor correspondence
+sensor <- read_csv(here::here("data", "sensorCorrespondence.csv")) 
+
+sensor <- sensor %>% filter(sensorName %in% sensores) %>% dplyr::select(-date)
+```
+
+
+# Get climate statistics 
+```{r}
+
+temp <- dfv %>% 
+  group_by(Date, sensorName) %>% 
+  summarise(tmin = min(Temp),
+            tmax = max(Temp),
+            tmean = mean(Temp),
+            amplitude = max(Temp) - min(Temp))
+
+temp <- temp %>% inner_join(sensor, by="sensorName")
+
+
+tempLoc <- temp %>% 
+  group_by(microhabitat, loc, Date) %>% 
+  summarise_at(c('tmax', 'tmin', 'tmean', 'amplitude'), mean, na.rm=TRUE)
+
+
+tempLoc %>% ggplot(aes(y=tmean, x=Date)) + geom_point() + facet_grid(microhabitat~loc) 
+
+```
+
+
+
+
+
+
+
+```{r}
+
+  
+  
+  
+  
+
+
+
+
+
+
+  # Validate temperature range (-20 to 70 C degree) in air. 
+  # See http://www.onsetcomp.com/products/data-loggers/utbi-001
+  validdf <- aux %>% 
+    mutate(valid = if_else(
+      .[[vnameTemp]] < -20, 0, if_else(.[[vnameTemp]] >= 70, 0, 1)
+    )) 
+  
+  ## Delete first and last day 
+  
+  out <- validdf %>% 
+    filter(.[[vnameDate]] != min(.[[vnameDate]])) %>% 
+    filter(.[[vnameDate]] != max(.[[vnameDate]])) 
+  
+  return(out)
+  
+}   
+  
+
+
+
+      
+     
+
+
+
+
+
+
+
+# Fogollon padre para validar (seguro que es una chorrada)
+t <- tela %>% filter(sensorName == "P27") 
+t <- t[3102:3133,]
+
+
+t$f <- NA
+
+for (i in 1:nrow(t)) { 
+  bad <- ifelse(t[i,"BadBattery"] == 'Logged', 1, 
+                ifelse(t[i + 1, "GoodBattery"] == 'Logged', 0, 1))
+                
+  
+  t[i, "f"] <- bad 
+
+}
+
+
+tr <- t %>% mutate(
+  bB = as.numeric(if_else(is.na(BadBattery), 0, -1)),
+  gB = as.numeric(if_else(is.na(GoodBattery), 0, 1)),
+  flag = bB + gB) %>% as.data.frame() 
+
+
+trr <- tr %>% mutate(
+  uy = if_else(flag != 0, flag, 
+               ifelse(sign(lag(flag,1)) < 0, -1, 1))
+                 #lag(flag, 1) > 0, flag + 1, -1))
+)
+
+
+locf.0 <- function(x) {
+  L <- x!=0
+  idx <- c(0, which(L))[cumsum(L) + 1]
+  return(x[idx])
+} 
+
+
+
+
+
+
+
+
+
+
+
+tr <- t %>% mutate(
+  # gB = if_else(is.na(GoodBattery), 1, 0),
+  test = if_else(is.na(BadBattery),
+               if_else(is.na(GoodBattery),1,-99)
+               
+               ,99)) 
+
+
+
+trr <- tr %>% 
+  mutate(fin = if_else(test = 1, 
+         if_else(lag(test, 1) = -99, test*lag(test,1), test), 
+         test))
+
+
+
+
+
+
+
+ro <- rollify(.f = ~sum(.x), window = 2)
+
+
+trr <- tr %>% mutate(la = ro(bB))
+
+
+
+
+
+
+
+
+
+
+if (!is.na(t$BadBattery)) { 
+  t$f1 <- 1
+  } else { 
+    if (lag(t$f1, 1) > 0 && is.na(t$GoodBattery)) { 
+      t$f1 <- 1
+    } else { 
+        t$f1 <- 0 
+        } 
+  }
+  
+  
+
+trr <- t %>% 
+  mutate(f1 = if_else(!is.na(BadBattery), 1, 0)) %>% 
+  mutate(f2 = if_else(
+                  lag(f1, 1) > 0 & is.na(GoodBattery), 1, 0))
+                  
+                  
+                  if_else(is.na(GoodBattery), 1, 0),1))
+
+t$f1 <- ifelse(!is.na(t$BadBattery), 1, 0)   
+
+
+```
