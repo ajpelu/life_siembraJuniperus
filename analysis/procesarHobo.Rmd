@@ -40,6 +40,9 @@ dfv <- dfv %>%
   dplyr::select("Date","Time","Temp","sensorName")  
 ```
 
+
+
+
 ```{r}
 # Get sensorNames from hobo 
 sensores <- as.character(unique(dfv$sensorName))
@@ -77,18 +80,79 @@ tempLoc %>% ggplot(aes(y=tmean, x=Date)) + geom_point() + facet_grid(microhabita
 
 
 
+```{r, eval=FALSE, echo=FALSE}
+
+# Test 1 
+# Inicio NA NA 
+
+df <- as.data.frame(cbind(
+  temp = c(1:13),
+  BadBattery = c(NA,NA,NA,NA,NA,NA,NA,"Logged",NA,NA,NA,NA,NA),
+  GoodBattery = c(NA,NA,NA,NA,NA,NA,NA,NA,NA,NA, "Logged",NA,NA)
+))
 
 
-```{r}
+df$cc <- ifelse(is.na(df$BadBat) & is.na(df$GoodBat), NA,
+                ifelse(!is.na(df$BadBat), 'Bad', 'Good'))
 
+df <- df %>% mutate(flag = na.locf0(cc)) 
+          
+
+
+
+
+  aux <- df %>% mutate(
+    auxFlag = ifelse(is.na(BadBattery) & is.na(GoodBattery), NA, 
+                      ifelse(!is.na(BadBattery), 'Bad', 'Good')),
+    flag0 = zoo::na.locf0(auxFlag)) %>% 
+    mutate(flag = ifelse(is.na(flag0), 'Good',flag0)) %>% 
+    dplyr::select(-c(auxFlag, flag0))
   
   
   
+   
+# Test 2 
+# Inicio NA Logged 
+
+df <- as.data.frame(cbind(
+  temp = c(1:13),
+  BadBattery = c(NA,NA,NA,NA,NA,NA,NA,"Logged",NA,NA,NA,NA,NA),
+  GoodBattery = c("Logged",NA,NA,NA,NA,NA,NA,NA,NA,NA, "Logged",NA,NA)
+))
+
+
+df$cc <- ifelse(is.na(df$BadBat) & is.na(df$GoodBat), NA,
+                ifelse(!is.na(df$BadBat), 'Bad', 'Good'))
+
+df <- df %>% mutate(flag = na.locf0(cc))
+  
+# Test 3 
+# Inicio Logged NA
+
+df <- as.data.frame(cbind(
+  temp = c(1:13),
+  BadBattery = c("Logged",NA,NA,NA,NA,NA,NA,"Logged",NA,NA,NA,NA,NA),
+  GoodBattery = c(NA,NA,NA,"Logged",NA,NA,NA,NA,NA,NA, "Logged",NA,NA)
+))
+
+
+df$cc <- ifelse(is.na(df$BadBat) & is.na(df$GoodBat), NA,
+                ifelse(!is.na(df$BadBat), 'Bad', 'Good'))
+
+df <- df %>% mutate(flag = na.locf0(cc))
   
 
 
+# OLD parte de la funcion valida Hobo 
 
-
+  # aux <- df %>% mutate(
+  #   bB = as.numeric(if_else(is.na(BadBattery), 0, -1)),
+  #   gB = as.numeric(if_else(is.na(GoodBattery), 0, 1)),
+  #   aux_flag = bB + gB,
+  #   # https://stackoverflow.com/questions/20416046/filling-data-frame-with-previous-row-value 
+  #   flag = ave(aux_flag, cumsum(aux_flag), FUN = function(x) x[x !=0])) %>% 
+  #   dplyr::select(-c(bB,gB,aux_flag))
+  # 
 
 
   # Validate temperature range (-20 to 70 C degree) in air. 
@@ -106,121 +170,6 @@ tempLoc %>% ggplot(aes(y=tmean, x=Date)) + geom_point() + facet_grid(microhabita
   
   return(out)
   
-}   
-  
-
-
-
-      
-     
-
-
-
-
-
-
-
-# Fogollon padre para validar (seguro que es una chorrada)
-t <- tela %>% filter(sensorName == "P27") 
-t <- t[3102:3133,]
-
-
-t$f <- NA
-
-for (i in 1:nrow(t)) { 
-  bad <- ifelse(t[i,"BadBattery"] == 'Logged', 1, 
-                ifelse(t[i + 1, "GoodBattery"] == 'Logged', 0, 1))
-                
-  
-  t[i, "f"] <- bad 
-
-}
-
-
-tr <- t %>% mutate(
-  bB = as.numeric(if_else(is.na(BadBattery), 0, -1)),
-  gB = as.numeric(if_else(is.na(GoodBattery), 0, 1)),
-  flag = bB + gB) %>% as.data.frame() 
-
-
-trr <- tr %>% mutate(
-  uy = if_else(flag != 0, flag, 
-               ifelse(sign(lag(flag,1)) < 0, -1, 1))
-                 #lag(flag, 1) > 0, flag + 1, -1))
-)
-
-
-locf.0 <- function(x) {
-  L <- x!=0
-  idx <- c(0, which(L))[cumsum(L) + 1]
-  return(x[idx])
-} 
-
-
-
-
-
-
-
-
-
-
-
-tr <- t %>% mutate(
-  # gB = if_else(is.na(GoodBattery), 1, 0),
-  test = if_else(is.na(BadBattery),
-               if_else(is.na(GoodBattery),1,-99)
-               
-               ,99)) 
-
-
-
-trr <- tr %>% 
-  mutate(fin = if_else(test = 1, 
-         if_else(lag(test, 1) = -99, test*lag(test,1), test), 
-         test))
-
-
-
-
-
-
-
-ro <- rollify(.f = ~sum(.x), window = 2)
-
-
-trr <- tr %>% mutate(la = ro(bB))
-
-
-
-
-
-
-
-
-
-
-if (!is.na(t$BadBattery)) { 
-  t$f1 <- 1
-  } else { 
-    if (lag(t$f1, 1) > 0 && is.na(t$GoodBattery)) { 
-      t$f1 <- 1
-    } else { 
-        t$f1 <- 0 
-        } 
-  }
-  
-  
-
-trr <- t %>% 
-  mutate(f1 = if_else(!is.na(BadBattery), 1, 0)) %>% 
-  mutate(f2 = if_else(
-                  lag(f1, 1) > 0 & is.na(GoodBattery), 1, 0))
-                  
-                  
-                  if_else(is.na(GoodBattery), 1, 0),1))
-
-t$f1 <- ifelse(!is.na(t$BadBattery), 1, 0)   
-
+ 
 
 ```
