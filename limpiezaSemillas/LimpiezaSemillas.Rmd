@@ -46,4 +46,4 @@ ntotal_Lower
 ntotal_Upper
 ```
 
-Hay `ntotal` semillas (`ntotal_Lower` - `ntotal_Upper`)
+Hay `r round(ntotal, 2)` semillas (`r round(ntotal_Lower,2)` - `r round(ntotal_Upper,2)`)

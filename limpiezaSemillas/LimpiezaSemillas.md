@@ -50,4 +50,4 @@ ntotal_Upper
 
     ## [1] 2218.339
 
-Hay `ntotal` semillas (`ntotal_Lower` - `ntotal_Upper`)
+Hay 2176.3 semillas (2136.17 - 2218.34)
