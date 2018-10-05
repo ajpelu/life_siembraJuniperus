@@ -1,5 +1,21 @@
 # Diario de campo
 
+# 04/10/2018
+* Acequia de Bérchules
+* JMBA, JMMuñoz, AJPL
+* Revisión germinación, supervivencia.
+
+### Notas 
+* Se tomaron los datos con GPS de precisión 
+* El sentor P26 de la jaula P404 no se ha podido leer y se ha traído a laboratorio 
+* B49 está desplazada y la hemos encontrado en la otra punta. La hemos retirado 
+* Muy poca germinación y/o supervivencia
+* Se observa un pequeño aumento de datos de humedad
+* Muchas etiquetas están rotas y/o picadas por el sol. Tenemos que buscar una solución
+* ver datos en /field_work/siembra_enebros/2018_10_04_BERCHULES (drive)
+
+# :red_circle: Falta datos de visita a Haza mesa con Maria 
+
 # 02/08/2018
 * Acequia de Bérchules
 * Juan Reyes, JMBA, JMMuñoz, Javier Cabello, Javier Sánchez, Guarda Berchules, AJPL
@@ -16,6 +32,8 @@
     * ver datos `.hobo` en [./sensores/review_sensorHobo.csv](./sensores/review_sensorHobo.csv)
     * datos raw (formato `.hobo`) en [./sensores/hoboRaw](./sensores/hoboRaw]) 
 * Ojo el sensor P26 situado en la jaula P404 no se ha podido leer. El aparato no lo leía 
+* ver datos en /field_work/siembra_enebros/2018_08_02_BERCHULES (drive)
+
 
 # 31/07/2018 
 * Visita de campo a la acequia de Haza Mesa.
