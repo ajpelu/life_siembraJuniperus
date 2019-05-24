@@ -1,5 +1,25 @@
 # Diario de campo
 
+# 22/05/2019
+* Acequia de Bérchules
+* JMBA, AJPL, Ainoa, Cristina y Manuel (Practicums)
+* Revisión germinación, supervivencia.
+
+### Notas 
+* En la jaul P404 se instala el nuevo sensor (BER_01)
+* Muy poca germinación y/o supervivencia
+* Intentamos instalar sensores de humedad fijo, pero no funciona el lector. 
+* Muchas etiquetas están rotas y/o picadas por el sol. Tenemos que buscar una solución
+* ver datos en /field_work/siembra_enebros/2019_05_22_BERCHULES (drive)
+
+
+# 09/10/2018 
+* Acequia Haza mesa 
+* RZ, JMBA, Pepe (Bicha)
+* Nos cayó una buena tormenta 
+* : red_circle: datos por organizar 
+
+
 # 04/10/2018
 * Acequia de Bérchules
 * JMBA, JMMuñoz, AJPL
