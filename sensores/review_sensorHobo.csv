@@ -15,3 +15,9 @@ date,idHobo,idJaula,bateria,memoria,status,obs
 03/08/2018,LANP31,G307,80,25,OK,descarga datos ver hobo_raw files
 03/08/2018,LANP32,R310,73,25,OK,descarga datos ver hobo_raw files
 03/08/2018,P47,B310,NA,NA,NOT FOUND,No se encuentra el sensor 
+22/05/2019,P33,P508,60,42,OK,descarga datos ver hobo_raw files
+22/05/2019,PX1,R510,53,42,OK,descarga datos ver hobo_raw files
+22/05/2019,P39,B504,60,42,OK,descarga datos ver hobo_raw files
+22/05/2019,P22,B410,53,42,OK,descarga datos ver hobo_raw files
+22/05/2019,P43,R403,NA,NA,OK,descarga datos ver hobo_raw files
+22/05/2019,BER_01,P404,NA,NA,OK,Se instala en sustitucion del hobo P26
