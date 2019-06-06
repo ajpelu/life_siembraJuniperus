@@ -1,3 +1,10 @@
+---
+title: "Protocolo Campo Siembra Enebrales"    
+output: pdf_document 
+author: Antonio J. Pérez-Luque
+date: Marzo 2019
+---
+
 # Protocolo muestreo Revisión de Enebrales 
 
 * Revisar el estado de las etiquetas 
@@ -6,6 +13,7 @@
 * Visitar cada jaula
 * Anotar el número de individuos vivos y muertos de cada especie (Berberis, Juniperus)
 * Anotar acciones realizas en cada jaula, según el siguiente código: 
+
 		* H: Eliminar las hierbas ("malas hierbas")
 		* J: Arreglar jaula 
 		* H+J: ambos
@@ -46,10 +54,12 @@ El manual del TDR 100 se puede ver en este [enlace](https://www.specmeters.com/a
 - [ ] Cámara fotos
 
 Si se van a leer los dataloggers de temperatura, además:
+
 - [ ] Lector datos temperatura
 - [ ] Ordenador
 
-Si se van a instalar sensores humedad - HOBO 
+Si se van a instalar sensores humedad - HOBO:
+
 - [ ] Bolsas protectoras 
 - [ ] Alambre fino 
 - [ ] Escardilla 

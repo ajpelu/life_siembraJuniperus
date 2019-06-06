@@ -2,7 +2,7 @@ date,idHobo,idJaula,bateria,memoria,status,obs
 31/07/2018,P27,P110,60,25,OK,descarga datos ver hobo_raw files
 31/07/2018,P21,R110,80,25,OK,descarga datos ver hobo_raw files
 31/07/2018,P66,B101,1,25,OK,descarga datos ver hobo_raw files
-31/07/2018,P4,E110,93,25,OK,descarga datos ver hobo_raw files
+31/07/2018,P4,E109,93,25,OK,descarga datos ver hobo_raw files
 31/07/2018,LANP33,G110,86,25,OK,descarga datos ver hobo_raw files
 02/08/2018,P33,P508,80,26,OK,descarga datos ver hobo_raw files
 02/08/2018,PX1,R510,86,26,OK,descarga datos ver hobo_raw files
@@ -21,3 +21,16 @@ date,idHobo,idJaula,bateria,memoria,status,obs
 22/05/2019,P22,B410,53,42,OK,descarga datos ver hobo_raw files
 22/05/2019,P43,R403,NA,NA,OK,descarga datos ver hobo_raw files
 22/05/2019,BER_01,P404,NA,NA,OK,Se instala en sustitucion del hobo P26
+05/06/2019,P4,E109,93,42,OK,descarga datos ver hobo_raw files
+05/06/2019,LANP33,G110,66,42,OK,descarga datos ver hobo_raw files
+05/06/2019,P27,P110,23,27,OK,descarga datos ver hobo_raw files
+05/06/2019,P21,R110,29,42,OK,descarga datos ver hobo_raw files
+05/06/2019,H1,R201,NA,NA,OK,se instala
+05/06/2019,H2,G202,NA,NA,OK,se instala
+05/06/2019,H4,E204,NA,NA,OK,se instala
+05/06/2019,H3,B203,NA,NA,OK,se instala
+05/06/2019,LANP32,R310,73,42,OK,descarga datos ver hobo_raw files
+05/06/2019,LANP31,G307,66,42,OK,descarga datos ver hobo_raw files
+05/06/2019,P24,E308,53,42,OK,descarga datos ver hobo_raw files
+05/06/2019,H5,B304,NA,NA,OK,se instala
+05/06/2019,P35,P309,80,42,OK,descarga datos ver hobo_raw files
