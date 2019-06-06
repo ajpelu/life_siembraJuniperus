@@ -1,5 +1,21 @@
 # Diario de campo
 
+# 05/06/2019
+* Acequia de Haza Mesa
+* JMBA, AJPL, ARC, Miguel Galiana, Ainoa, Cristina y Manuel (Practicums)
+* Revisión germinación, supervivencia.
+
+### Notas 
+* Se observa germinación de este año 
+* Muchas etiquetas están rotas y/o picadas por el sol. Cambiamos muchas de ellas. Planteamos la posibilidad de hacer etiquetas metálicas
+* ver datos en /field_work/siembra_enebros/2019_06_05_HAZAMESA (drive)
+* E107 estaba descolocado
+* G109 no se encuentra
+* B104 no encontrado
+* P206, P208, P210 --> No encontrados
+* B310 no se encuentra 
+
+
 # 22/05/2019
 * Acequia de Bérchules
 * JMBA, AJPL, Ainoa, Cristina y Manuel (Practicums)
