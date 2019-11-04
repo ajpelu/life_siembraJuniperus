@@ -1,5 +1,56 @@
 # Diario de campo
 
+# 04/11/2019
+* Acequia de Haza Mesa
+* RZ, AJPL, Rut, JMM, Antonio Veredas, Rogelio SanJuan
+* Revisión germinación, supervivencia. Cambio etiquetas metálicas 
+* Sacar HOBOS
+
+### Notas 
+* Se cambiaron etiquetas
+  
+  * P206, P208, P210 --> No encontrados. No se pudieron cambiar etiquetas
+  * B104 no encontrado
+  * G109 no se encuentra
+  
+* El HOBO de la jaula E308 no se pudo leer los datos porque el portatil se quedó sin batería. 
+  
+  
+  
+#### $TODO$
+* Poner etiqueta a: 
+  
+  * B13, B16, B110
+  * G102, G103, G104, G105, G106, G107, G108 
+  * E103, E105, E106, E107
+  * R109 
+  * P101, P102, P103, P104, P106, P107, P109
+  * P302, P307 
+  
+* Obtener HOBO de E308 
+
+
+# 29/10/2019
+* Acequia de Bérchules
+* JMM, AJPL, Rut, RZ
+* Revisión germinación, supervivencia, cambio etiquetas
+* Sacar HOBOS
+
+### Notas 
+* Muy poca germinación y/o supervivencia
+* Intentamos instalar sensores de humedad fijo, pero no funciona el lector. 
+* ver datos en /field_work/siembra_enebros/2019_10_29_BERCHULES (drive)
+* Se anota en la ficha que la réplica P4 que las jaulas están mal identificadas. 
+
+$TODO$ Revisar etiquetado P4 
+
+
+
+
+
+
+
+
 # 05/06/2019
 * Acequia de Haza Mesa
 * JMBA, AJPL, ARC, Miguel Galiana, Ainoa, Cristina y Manuel (Practicums)
