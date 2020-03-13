@@ -45,12 +45,6 @@
 $TODO$ Revisar etiquetado P4 
 
 
-
-
-
-
-
-
 # 05/06/2019
 * Acequia de Haza Mesa
 * JMBA, AJPL, ARC, Miguel Galiana, Ainoa, Cristina y Manuel (Practicums)
@@ -150,23 +144,25 @@ $TODO$ Revisar etiquetado P4
 * Hemos creado un índice (i) para ver el estado de las jaulas. De alguna forma puede poner de manifiesto la cantidad de ganado o animales que han pasado por allí. El valor va de 1 a 5, siendo 1, aquellas jaulas intactas; i5 aquellas totalmente destrozadas. 
 
 * Los borreguiles tiene signos de mucha precensia de ganado. 
-
-### Revisión 
-
 * ver datos en /field_work/siembra_enebros/2017_11_09_BERCHULES (drive)
 
 # 20/10/2017
 
-* Visita a campos de Otero para cambiar algunas etiquetas y de paso revisar jaula. 
+* Visita a Haza Mesa para cambiar algunas etiquetas y de paso revisar jaula. 
 * La réplica B3 (old B7) están las jaulas muy destrozadas. 
 * Los sensores emiten luz roja (están OK)
 * La jaúla B310 se ha movido, comprobar posición GPS (la hemos colocado donde creíamos que estaba)
 * Réplica R3 están bastante bien las jaulas. 
 * Colectamos excrementos de Mirlo en el camino de vuelta. Poca cantidad, pero muy frescos. 
 * Arcéstidas verdes y maduras, pero predominan las verdes. 
+* AJPL, FJBG
 
-
-
+# 06/07/2017 
+* VISITA Haza Mesa
+* Mucho viento y tormentas
+* En general unidades de siembra bien asentadas excepto algunas de borreguiles y de pastizal seco que han sido pisoteadas
+* En la replica 2 en el microhábitat de borreguil está mas afectada por el pisoteo de las vacas 
+* RZ, AJPL
 
 # 05/05/2017 
 * Instalación jaulas de siembra en Haza Mesa. Réplica 3 
@@ -176,7 +172,7 @@ $TODO$ Revisar etiquetado P4
 # 03/05/2017 
 
 * Instalación jaulas de siembra en Haza Mesa. Réplica 1 y 2. 
-* RZ, JMBA, JCano, AJPL, FJBG, RMLL, Mayka, JaviCarretero, Nano, Miguel Galiana, ? 
+* RZ, JMBA, JCano, AJPL, FJBG, RMLL, Mayka, JaviCarretero, Nano, Miguel Galiana 
 * Se instalan además sensores hobo de temperatura, en concreto, 2 por cada microhábitat. Los códigos se pueden ver en [./sensores/sensores_jaula.md](./sensores/sensores_jaula.md)
 
 # 24/04/2017 
