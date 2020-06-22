@@ -1,5 +1,8 @@
 # Diario de campo
 
+
+
+
 # 04/11/2019
 * Acequia de Haza Mesa
 * RZ, AJPL, Rut, JMM, Antonio Veredas, Rogelio SanJuan
@@ -78,7 +81,6 @@ $TODO$ Revisar etiquetado P4
 * Acequia Haza mesa 
 * RZ, JMBA, Pepe (Bicha)
 * Nos cayó una buena tormenta 
-* : red_circle: datos por organizar 
 
 
 # 04/10/2018

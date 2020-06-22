@@ -74,3 +74,6 @@ preparaHobo <- function(f){
 }
 
 
+
+hobo_data <- read_hobo_csv(here::here("sensores/hoboRaw/LANP31.csv"))
+
