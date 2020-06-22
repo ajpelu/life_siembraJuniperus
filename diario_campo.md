@@ -1,6 +1,12 @@
 # Diario de campo
 
 
+# 19/06/2020
+* Acequia de Haza Mesa
+* RZ, AJPL, Antonio Veredas, Miguel Arrufat
+* Revisión germinación, supervivencia.  
+* Observamos germinación tardía de Juniperus y de Berberis (sorprende lo de Berberis)
+
 
 
 # 04/11/2019
@@ -19,7 +25,6 @@
 * El HOBO de la jaula E308 no se pudo leer los datos porque el portatil se quedó sin batería. 
   
   
-  
 #### $TODO$
 * Poner etiqueta a: 
   
@@ -29,7 +34,6 @@
   * R109 
   * P101, P102, P103, P104, P106, P107, P109
   * P302, P307 
-  
 * Obtener HOBO de E308 
 
 
@@ -149,7 +153,6 @@ $TODO$ Revisar etiquetado P4
 * ver datos en /field_work/siembra_enebros/2017_11_09_BERCHULES (drive)
 
 # 20/10/2017
-
 * Visita a Haza Mesa para cambiar algunas etiquetas y de paso revisar jaula. 
 * La réplica B3 (old B7) están las jaulas muy destrozadas. 
 * Los sensores emiten luz roja (están OK)
