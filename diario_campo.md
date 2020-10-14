@@ -8,7 +8,6 @@
 * Observamos germinación tardía de Juniperus y de Berberis (sorprende lo de Berberis)
 
 
-
 # 04/11/2019
 * Acequia de Haza Mesa
 * RZ, AJPL, Rut, JMM, Antonio Veredas, Rogelio SanJuan
