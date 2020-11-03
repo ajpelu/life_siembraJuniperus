@@ -1,0 +1,97 @@
+---
+title: "preparaMD"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("here")
+library("tidyverse")
+```
+
+```{r}
+raw <- read_csv(here::here("/data/revision_siembras_all.csv"))
+m <- read_csv(here::here("/data/revision_siembras_all_md.csv"))
+
+#### SOWING UNITS
+sowing <- read_csv(here::here("/data/dicc_sowing_stations.csv")) %>% 
+  mutate(
+    microhabitat = case_when(
+      str_detect(station, "R") ~ "stone",
+      str_detect(station, "E") ~ "juniper",
+      str_detect(station, "B") ~ "wet meadow",
+      str_detect(station, "P") ~ "open ground",
+      str_detect(station, "G") ~ "genista"), 
+    site_name = case_when(
+      site == "N" ~ "Haza Mesa", 
+      site == "S" ~ "Berchules"
+    )) %>% 
+  rename(slope = site) %>% 
+  dplyr::select(-cod_sowing, -replica) 
+
+write_csv(sowing, here::here("/data/csv_metadata/sowing_stations.csv"))
+#----------------------
+
+# Diccionario Variables 
+v <- read_csv(here::here("/data/csv_metadata/dicc_variables.csv"))
+
+
+# ----- Humedad 
+soil_moisture <- raw %>% 
+  filter(!(IdVisita %in% c("2017_6","2017_7"))) %>% # remove data 2017 
+  mutate(visit = case_when(
+    IdVisita %in% c("2018_1","2018_2") ~ "pri18",
+    IdVisita %in% c("2018_3","2018_4","2018_5") ~ "ver18",
+    IdVisita %in% c("2018_6","2018_7") ~ "oto18",
+    IdVisita %in% c("2019_1","2019_2") ~ "pri19",
+    IdVisita %in% c("2019_3","2019_4") ~ "oto19",
+    IdVisita %in% c("2020_1","2020_2") ~ "pri20",
+    IdVisita %in% c("2020_3","2020_4") ~ "oto20"
+  )) %>% 
+  mutate(variable = "vwc") %>% 
+  dplyr::select(station = codeSowing, date=visit, variable, value = Humedad) %>% 
+  mutate(value = ifelse(value == -999, NA, value))
+  
+
+```
+
+```{r}
+j <- read_csv(here::here("/data/germina/germ_acumulada_juniperus.csv"))
+b <- read_csv(here::here("/data/germina/germ_acumulada_berberis.csv"))
+```
+
+```{r}
+auxJ <- j %>% dplyr::select(-microhabitat, -site, -replica, -germ) %>% 
+  rename(sp18 = pri18, su18 = ver18, au18 = oto18,
+         sp19 = pri19, au19 = oto19,
+         sp20 = pri20, au20 = oto20) %>% 
+  pivot_longer(-station, names_to = "date", values_to = "value") %>% 
+  mutate(variable = "emeJ") %>% 
+  relocate(variable, .before = value)
+
+auxB <- b %>% dplyr::select(-microhabitat, -site, -replica, -germ) %>% 
+  rename(sp18 = pri18, su18 = ver18, au18 = oto18,
+         sp19 = pri19, au19 = oto19,
+         sp20 = pri20, au20 = oto20) %>% 
+  pivot_longer(-station, names_to = "date", values_to = "value") %>% 
+  mutate(variable = "emeB") %>% 
+  relocate(variable, .before = value)
+
+
+```
+
+```{r}
+dataout  <- bind_rows(auxJ, auxB, soil_moisture) %>% 
+  mutate
+```
+
+
+
+
+
+

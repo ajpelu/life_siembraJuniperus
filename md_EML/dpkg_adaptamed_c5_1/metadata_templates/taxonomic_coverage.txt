@@ -1,0 +1,3 @@
+name	name_type	name_resolved	authority_system	authority_id
+Berberis hispanica Boiss. & Reut.	scientific	Berberis hispanica	GBIF Backbone Taxonomy	8428417
+Juniperus communis L.	scientific	Juniperus communis	ITIS	194820
