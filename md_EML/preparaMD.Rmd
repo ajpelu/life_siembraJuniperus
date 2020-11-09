@@ -55,9 +55,18 @@ soil_moisture <- raw %>%
   )) %>% 
   mutate(variable = "vwc") %>% 
   dplyr::select(station = codeSowing, date=visit, variable, value = Humedad) %>% 
-  mutate(value = ifelse(value == -999, NA, value))
-  
+  mutate(value = ifelse(value == -999, NA, value), 
+         date = case_when(
+           date == "pri18" ~ "sp18",
+           date == "ver18" ~ "su18",
+           date == "oto18" ~ "au18",
+           date == "pri19" ~ "sp19",
+           date == "oto19" ~ "au19",
+           date == "pri20" ~ "sp20",
+           date == "oto20" ~ "au20")
+         )
 
+  
 ```
 
 ```{r}
@@ -66,28 +75,81 @@ b <- read_csv(here::here("/data/germina/germ_acumulada_berberis.csv"))
 ```
 
 ```{r}
-auxJ <- j %>% dplyr::select(-microhabitat, -site, -replica, -germ) %>% 
+auxJ <- j %>% dplyr::select(-microhabitat, -site, -replica, -germ, -survival) %>% 
   rename(sp18 = pri18, su18 = ver18, au18 = oto18,
          sp19 = pri19, au19 = oto19,
          sp20 = pri20, au20 = oto20) %>% 
   pivot_longer(-station, names_to = "date", values_to = "value") %>% 
-  mutate(variable = "emeJ") %>% 
+  mutate(variable = "emergenceJ") %>% 
   relocate(variable, .before = value)
 
-auxB <- b %>% dplyr::select(-microhabitat, -site, -replica, -germ) %>% 
+auxB <- b %>% dplyr::select(-microhabitat, -site, -replica, -germ, -survival) %>% 
   rename(sp18 = pri18, su18 = ver18, au18 = oto18,
          sp19 = pri19, au19 = oto19,
          sp20 = pri20, au20 = oto20) %>% 
   pivot_longer(-station, names_to = "date", values_to = "value") %>% 
-  mutate(variable = "emeB") %>% 
+  mutate(variable = "emergenceB") %>% 
   relocate(variable, .before = value)
 
+sJ <- j %>% dplyr::select(station, survival) %>% 
+  mutate(date = "au20", variable = "survivalJ") %>% 
+  rename(value = survival) %>% 
+  relocate(station, date, variable, value)
+
+sB <- b %>% dplyr::select(station, survival) %>% 
+  mutate(date = "au20", variable = "survivalB") %>% 
+  rename(value = survival) %>% 
+  relocate(station, date, variable, value)
 
 ```
 
 ```{r}
-dataout  <- bind_rows(auxJ, auxB, soil_moisture) %>% 
-  mutate
+dataout  <- bind_rows(auxJ, auxB, sB, sJ, soil_moisture)
+write_csv(dataout, here::here("/data/csv_metadata/emergence_data.csv"))
+```
+
+
+```{r}
+### Generate html from EML 
+file <- here::here("md_EML/adaptamed.sierranevada.a5.xml")
+encoding <- "UTF-8"
+style <- xml2::read_xml(here::here("/md_EML/template/bootstrap.xsl"))
+eml <- xml2::read_xml(file, encoding = encoding)
+
+  # make map
+  name <- xml2::xml_find_all(eml, "//geographicCoverage/geographicDescription")
+  name <- unlist(xml2::as_list(name))
+  
+  west <- xml2::xml_find_all(eml, "//geographicCoverage/boundingCoordinates/westBoundingCoordinate")
+  west <- as.numeric(unlist(xml2::as_list(west)))
+
+  east <- xml2::xml_find_all(eml, "//geographicCoverage/boundingCoordinates/eastBoundingCoordinate")
+  east <- as.numeric(unlist(xml2::as_list(east)))
+  
+  north <- xml2::xml_find_all(eml, "//geographicCoverage/boundingCoordinates/northBoundingCoordinate")
+  north <- as.numeric(unlist(xml2::as_list(north)))
+  
+  south <- xml2::xml_find_all(eml, "//geographicCoverage/boundingCoordinates/southBoundingCoordinate")
+  south <- as.numeric(unlist(xml2::as_list(south)))
+  
+  geo_info <- data.frame(name = name,
+                         west = west, east = east,
+                         south = south, north = north)
+  
+  map <- leaflet::leaflet(geo_info) %>% 
+    leaflet::addProviderTiles("OpenTopoMap") %>%
+    leaflet::addRectangles(
+      lng1 = west, lat1 = south,
+      lng2 = east, lat2 = north,
+      popup = name,
+      fillColor = "transparent"
+    )
+  
+htmlwidgets::saveWidget(map, file = here::here("/md_EML/map.html"), selfcontained = FALSE)
+  
+html <- xslt::xml_xslt(eml, style)
+xml2::write_html(html, here::here("/md_EML/adaptamed_sn_a5.html"))
+  
 ```
 
 

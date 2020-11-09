@@ -1,6 +1,6 @@
 code,name,units,variable_cv,url_cv
-emeB,seedling emergence of Berberis hispanica,number,seedling emergence,http://vocabs.lter-europe.net/EnvThes/21949
-emeJ,seedling emergence of Juniperus communis,number,seedling emergence,http://vocabs.lter-europe.net/EnvThes/21949
-surB,seedling survival of Berberis hispanica,percentage,seedling survival rate,http://vocabs.lter-europe.net/EnvThes/22235
-surJ,seedling survival of Juniperus communis,percentage,seedling survival rate,http://vocabs.lter-europe.net/EnvThes/22235
+emergenceB,seedling emergence of Berberis hispanica,number,seedling emergence,http://vocabs.lter-europe.net/EnvThes/21949
+emergenceJ,seedling emergence of Juniperus communis,number,seedling emergence,http://vocabs.lter-europe.net/EnvThes/21949
+survivalB,seedling survival of Berberis hispanica at the end of the study period,percentage,seedling survival rate,http://vocabs.lter-europe.net/EnvThes/22235
+survivalJ,seedling survival of Juniperus communis at the end of the study period,percentage,seedling survival rate,http://vocabs.lter-europe.net/EnvThes/22235
 vwc,soil volumetric water content,percentage,soil volumetric water content,http://vocabs.lter-europe.net/EnvThes/22280

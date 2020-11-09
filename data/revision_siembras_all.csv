@@ -1,4 +1,4 @@
-IdVisita,codeSowing,Berberis_vivos,Berberis_muertos,Juniperos_vivos,Juniperus_muertos,Humedad,observaciones
+IdVisita,codeSowing,Berberis_vivos,Berberis_muertos,Juniperus_vivos,Juniperus_muertos,Humedad,observaciones
 2018_7,R11,1,1,0,0,11,NA
 2018_7,R12,7,0,0,0,10,Todos agonizantes
 2018_7,R13,0,1,0,0,7,NA
@@ -1058,7 +1058,7 @@ IdVisita,codeSowing,Berberis_vivos,Berberis_muertos,Juniperos_vivos,Juniperus_mu
 2018_3,R17,3,2,0,0,2,Eliminar malas hierbas
 2018_3,R18,0,8,0,1,0,NA
 2018_3,R19,0,0,0,0,0,"Ojo esta jaula está cerca de roca, aunque no parece que sea bajo roca. Considerar la posibilidad de no tenerla en cuenta, porque parece mas bien un pastizal"
-NA,R110,6,0,0,0,1,Sensor P21 // 80 % bat // 25 % memoria
+2018_3,R110,6,0,0,0,1,Sensor P21 // 80 % bat // 25 % memoria
 2018_3,G11,3,2,0,0,7,NA
 2018_3,G12,2,2,0,0,5,NA
 2018_3,G13,0,3,0,0,2,Se arreglo la jaula

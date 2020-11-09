@@ -67,22 +67,9 @@ m <- purrr::map_df(fs$id, readMetadatoVisita)
 
 write_csv(g, here::here("/data/revision_siembras_all.csv"))
 write_csv(m, here::here("/data/revision_siembras_all_md.csv"))
-
-
-
-
-
 ```
 
 
-
-```{r}
-
-
-unique(h$fieldworkers)
-
-
-```
 
 
 

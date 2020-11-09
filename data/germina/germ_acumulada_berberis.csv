@@ -1,0 +1,211 @@
+microhabitat,site,replica,station,germ,pri18,ver18,oto18,pri19,oto19,pri20,oto20,survival
+wet meadow,N,1,B11,ng,0,0,0,0,0,0,0,0
+wet meadow,N,1,B110,pri18,3,3,3,3,3,3,3,0
+wet meadow,N,1,B12,pri18,5,5,5,5,5,5,5,0
+wet meadow,N,1,B13,ver18,0,5,5,5,5,5,5,0
+wet meadow,N,1,B14,out,NA,NA,NA,NA,NA,NA,NA,NA
+wet meadow,N,1,B15,pri18,4,4,4,4,4,4,4,0
+wet meadow,N,1,B16,pri18,3,3,3,3,3,3,3,0
+wet meadow,N,1,B17,oto18,0,0,2,2,2,2,2,0
+wet meadow,N,1,B18,pri18,3,3,3,3,3,4,4,0
+wet meadow,N,1,B19,out,NA,NA,NA,NA,NA,NA,NA,NA
+wet meadow,N,2,B21,pri18,2,2,2,2,2,2,2,0
+wet meadow,N,2,B210,ng,0,0,0,0,0,0,0,0
+wet meadow,N,2,B22,ng,0,0,0,0,0,0,0,0
+wet meadow,N,2,B23,pri18,1,1,1,2,2,2,2,0
+wet meadow,N,2,B24,ng,0,0,0,0,0,0,0,0
+wet meadow,N,2,B25,ng,0,0,0,0,0,0,0,0
+wet meadow,N,2,B26,pri19,0,0,0,1,1,1,1,0
+wet meadow,N,2,B27,pri18,3,3,3,3,3,3,3,0
+wet meadow,N,2,B28,pri18,2,2,2,2,2,2,2,0
+wet meadow,N,2,B29,ng,0,0,0,0,0,0,0,0
+wet meadow,N,3,B31,pri18,1,1,1,1,1,1,1,0
+wet meadow,N,3,B310,ng,0,0,0,0,0,0,0,0
+wet meadow,N,3,B32,pri18,1,1,1,1,1,1,1,0
+wet meadow,N,3,B33,pri18,7,7,7,7,7,7,7,0
+wet meadow,N,3,B34,pri18,1,1,1,1,1,1,1,0
+wet meadow,N,3,B35,pri18,2,2,2,2,2,2,2,0
+wet meadow,N,3,B36,pri18,1,1,1,1,1,1,1,0
+wet meadow,N,3,B37,ng,0,0,0,0,0,0,0,0
+wet meadow,N,3,B38,pri18,5,5,5,5,5,5,5,0
+wet meadow,N,3,B39,pri18,4,4,4,4,4,4,4,0
+wet meadow,S,4,B41,pri18,1,1,1,1,1,1,1,0
+wet meadow,S,4,B410,pri18,3,5,6,6,6,6,6,0
+wet meadow,S,4,B42,ng,0,0,0,0,0,0,0,0
+wet meadow,S,4,B43,pri18,2,2,2,2,2,2,2,0
+wet meadow,S,4,B44,pri18,3,3,3,3,3,3,3,0
+wet meadow,S,4,B45,pri18,2,3,3,3,3,3,3,0
+wet meadow,S,4,B46,pri18,3,3,3,3,3,3,3,0
+wet meadow,S,4,B47,ng,0,0,0,0,0,0,0,0
+wet meadow,S,4,B48,pri18,1,1,1,1,1,1,1,0
+wet meadow,S,4,B49,ng,0,0,0,0,0,0,0,0
+wet meadow,S,5,B51,pri18,1,1,2,2,2,2,2,0
+wet meadow,S,5,B510,pri18,5,5,5,5,5,5,5,0
+wet meadow,S,5,B52,ng,0,0,0,0,0,0,0,0
+wet meadow,S,5,B53,ng,0,0,0,0,0,0,0,0
+wet meadow,S,5,B54,pri18,1,1,1,1,1,1,1,0
+wet meadow,S,5,B55,out,NA,NA,NA,NA,NA,NA,NA,NA
+wet meadow,S,5,B56,ng,0,0,0,0,0,0,0,0
+wet meadow,S,5,B57,ng,0,0,0,0,0,0,0,0
+wet meadow,S,5,B58,out,NA,NA,NA,NA,NA,NA,NA,NA
+wet meadow,S,5,B59,ng,0,0,0,0,0,0,0,0
+juniper,N,1,E11,pri18,2,2,2,2,2,2,2,0
+juniper,N,1,E110,pri18,5,5,5,5,5,5,5,0
+juniper,N,1,E12,pri18,15,15,15,15,15,15,15,86.67
+juniper,N,1,E13,pri18,7,7,7,7,10,10,10,0
+juniper,N,1,E14,pri18,10,10,10,10,10,10,10,0
+juniper,N,1,E15,pri18,5,5,5,5,5,5,5,0
+juniper,N,1,E16,pri18,5,8,8,8,8,8,8,6.67
+juniper,N,1,E17,pri18,8,8,8,8,8,8,8,0
+juniper,N,1,E18,pri18,10,10,10,10,10,10,10,0
+juniper,N,1,E19,pri18,3,3,3,3,3,3,3,0
+juniper,N,2,E21,pri18,3,3,3,7,7,7,7,46.67
+juniper,N,2,E210,pri18,3,4,4,12,12,12,12,13.33
+juniper,N,2,E22,pri18,15,15,15,15,15,15,15,33.33
+juniper,N,2,E23,pri18,5,5,5,5,5,5,5,6.67
+juniper,N,2,E24,pri18,15,15,15,15,15,15,15,20
+juniper,N,2,E25,pri18,12,12,12,12,12,12,12,0
+juniper,N,2,E26,pri18,15,15,15,15,15,15,15,6.67
+juniper,N,2,E27,ng,0,0,0,0,0,0,0,0
+juniper,N,2,E28,pri18,12,12,12,12,12,12,12,13.33
+juniper,N,2,E29,pri18,5,5,5,5,5,5,5,0
+juniper,N,3,E31,pri18,1,1,1,1,1,1,1,0
+juniper,N,3,E310,pri18,3,3,3,3,3,4,4,0
+juniper,N,3,E32,pri18,2,5,5,5,5,5,5,20
+juniper,N,3,E33,pri18,3,5,5,5,5,5,5,0
+juniper,N,3,E34,pri18,2,2,2,3,3,5,5,0
+juniper,N,3,E35,pri18,2,2,2,2,2,2,2,13.33
+juniper,N,3,E36,pri18,1,1,1,1,1,1,1,0
+juniper,N,3,E37,pri18,6,6,6,6,6,6,6,40
+juniper,N,3,E38,pri18,5,5,5,5,5,5,5,6.67
+juniper,N,3,E39,pri18,1,1,1,1,1,1,1,0
+genista,N,1,G11,pri18,4,5,5,5,5,5,5,13.33
+genista,N,1,G110,pri18,10,10,10,10,10,10,10,0
+genista,N,1,G12,pri18,6,8,8,8,8,11,11,13.33
+genista,N,1,G13,pri18,2,3,3,3,3,3,3,0
+genista,N,1,G14,pri18,7,7,7,7,7,7,7,13.33
+genista,N,1,G15,pri18,10,10,10,10,10,10,10,13.33
+genista,N,1,G16,pri18,9,9,9,9,9,9,11,13.33
+genista,N,1,G17,pri18,6,6,6,6,6,6,6,0
+genista,N,1,G18,pri18,3,3,3,3,3,3,3,0
+genista,N,1,G19,pri18,3,3,3,3,3,3,3,0
+genista,N,2,G21,pri18,1,1,1,1,1,1,1,0
+genista,N,2,G210,pri18,3,3,3,3,3,3,3,0
+genista,N,2,G22,pri18,2,2,2,2,2,2,2,0
+genista,N,2,G23,pri18,3,3,3,3,3,3,3,0
+genista,N,2,G24,pri18,2,2,2,2,2,2,2,0
+genista,N,2,G25,ng,0,0,0,0,0,0,0,0
+genista,N,2,G26,pri18,7,7,7,7,7,7,7,0
+genista,N,2,G27,pri18,4,4,4,4,4,4,4,0
+genista,N,2,G28,pri18,3,3,3,3,3,3,3,0
+genista,N,2,G29,pri18,5,5,5,5,5,5,5,0
+genista,N,3,G31,pri18,4,4,4,4,4,4,4,0
+genista,N,3,G310,pri18,4,6,6,6,6,6,6,0
+genista,N,3,G32,pri18,5,5,5,5,5,5,5,0
+genista,N,3,G33,pri18,2,2,2,2,2,2,2,0
+genista,N,3,G34,pri18,4,4,4,4,4,4,4,0
+genista,N,3,G35,pri18,1,2,2,2,2,2,2,0
+genista,N,3,G36,pri18,1,1,1,1,1,1,1,0
+genista,N,3,G37,pri18,7,7,7,7,7,7,7,0
+genista,N,3,G38,ng,0,0,0,0,0,0,0,0
+genista,N,3,G39,ng,0,0,0,0,0,0,0,0
+open ground,N,1,P11,pri18,2,2,2,2,2,2,2,0
+open ground,N,1,P110,ng,0,0,0,0,0,0,0,0
+open ground,N,1,P12,ng,0,0,0,0,0,0,0,0
+open ground,N,1,P13,pri18,3,3,3,3,3,3,3,0
+open ground,N,1,P14,ng,0,0,0,0,0,0,0,0
+open ground,N,1,P15,ng,0,0,0,0,0,0,0,0
+open ground,N,1,P16,pri18,4,4,4,4,4,4,4,0
+open ground,N,1,P17,pri18,2,2,2,2,2,2,2,0
+open ground,N,1,P18,pri18,1,1,1,1,1,1,1,0
+open ground,N,1,P19,pri18,5,5,5,5,5,5,5,0
+open ground,N,2,P21,pri18,2,2,2,2,2,2,2,0
+open ground,N,2,P210,out,NA,NA,NA,NA,NA,NA,NA,NA
+open ground,N,2,P22,pri18,6,6,6,6,6,6,6,0
+open ground,N,2,P23,pri18,1,1,1,1,1,1,1,0
+open ground,N,2,P24,pri18,1,1,1,1,1,1,1,0
+open ground,N,2,P25,pri18,5,5,5,5,5,5,5,0
+open ground,N,2,P26,out,NA,NA,NA,NA,NA,NA,NA,NA
+open ground,N,2,P27,pri18,1,1,1,1,1,1,1,0
+open ground,N,2,P28,out,NA,NA,NA,NA,NA,NA,NA,NA
+open ground,N,2,P29,ng,0,0,0,0,0,0,0,0
+open ground,N,3,P31,ng,0,0,0,0,0,0,0,0
+open ground,N,3,P310,pri18,1,1,1,2,2,2,2,0
+open ground,N,3,P32,pri18,1,1,1,1,1,1,1,0
+open ground,N,3,P33,ng,0,0,0,0,0,0,0,0
+open ground,N,3,P34,pri18,1,1,1,1,1,1,1,0
+open ground,N,3,P35,ng,0,0,0,0,0,0,0,0
+open ground,N,3,P36,pri18,1,1,1,1,1,1,1,0
+open ground,N,3,P37,out,NA,NA,NA,NA,NA,NA,NA,NA
+open ground,N,3,P38,ng,0,0,0,0,0,0,0,0
+open ground,N,3,P39,ng,0,0,0,0,0,0,0,0
+open ground,S,4,P41,pri18,4,4,4,4,4,4,4,0
+open ground,S,4,P410,pri18,1,1,1,1,1,1,1,0
+open ground,S,4,P42,pri18,1,1,1,1,1,1,1,0
+open ground,S,4,P43,pri18,4,4,4,4,4,4,4,0
+open ground,S,4,P44,ng,0,0,0,0,0,0,0,0
+open ground,S,4,P45,ng,0,0,0,0,0,0,0,0
+open ground,S,4,P46,pri18,1,1,1,1,1,1,1,0
+open ground,S,4,P47,pri18,3,3,3,3,3,3,3,0
+open ground,S,4,P48,pri18,3,3,3,3,3,3,3,0
+open ground,S,4,P49,pri18,1,1,1,1,1,1,1,0
+open ground,S,5,P51,ng,0,0,0,0,0,0,0,0
+open ground,S,5,P510,ng,0,0,0,0,0,0,0,0
+open ground,S,5,P52,out,NA,NA,NA,NA,NA,NA,NA,NA
+open ground,S,5,P53,pri18,1,0,0,2,2,2,2,0
+open ground,S,5,P54,pri18,1,1,1,1,1,1,1,0
+open ground,S,5,P55,ng,0,0,0,0,0,0,0,0
+open ground,S,5,P56,pri19,0,0,0,1,1,1,1,0
+open ground,S,5,P57,pri19,0,0,0,1,1,1,1,0
+open ground,S,5,P58,ng,0,0,0,0,0,0,0,0
+open ground,S,5,P59,pri18,3,3,3,3,3,3,3,0
+stone,N,1,R11,pri18,3,3,3,3,3,3,3,6.67
+stone,N,1,R110,pri18,6,6,6,12,12,12,12,26.67
+stone,N,1,R12,pri18,9,9,9,9,9,9,9,53.33
+stone,N,1,R13,pri18,2,2,2,3,3,3,3,0
+stone,N,1,R14,pri18,5,5,5,5,5,5,5,6.67
+stone,N,1,R15,pri18,3,3,3,3,3,3,3,0
+stone,N,1,R16,pri18,3,3,3,3,3,3,3,0
+stone,N,1,R17,pri18,6,6,6,6,6,6,6,0
+stone,N,1,R18,pri18,10,10,10,10,10,10,10,0
+stone,N,1,R19,pri19,0,0,0,2,2,2,2,0
+stone,N,2,R21,pri18,3,3,3,3,3,3,3,0
+stone,N,2,R210,pri18,3,3,3,3,3,3,3,0
+stone,N,2,R22,pri18,2,2,2,2,2,2,2,0
+stone,N,2,R23,pri18,6,6,7,7,7,7,7,0
+stone,N,2,R24,pri18,2,2,2,2,2,2,2,13.33
+stone,N,2,R25,pri18,15,15,15,15,15,15,15,0
+stone,N,2,R26,pri18,11,11,11,11,11,11,11,6.67
+stone,N,2,R27,pri18,2,2,2,2,2,2,2,0
+stone,N,2,R28,pri18,10,10,10,10,10,10,10,0
+stone,N,2,R29,pri18,10,10,10,10,10,10,10,0
+stone,N,3,R31,ng,0,0,0,0,0,0,0,0
+stone,N,3,R310,pri18,2,2,2,2,2,2,2,0
+stone,N,3,R32,pri18,10,10,10,10,10,10,10,0
+stone,N,3,R33,mg,0,0,0,0,0,0,0,0
+stone,N,3,R34,ng,0,0,0,0,0,0,0,0
+stone,N,3,R35,pri18,4,4,4,4,4,4,4,0
+stone,N,3,R36,pri18,3,3,3,3,3,3,3,0
+stone,N,3,R37,pri18,2,2,2,2,2,2,2,0
+stone,N,3,R38,pri18,2,2,2,2,2,2,2,0
+stone,N,3,R39,pri18,1,1,1,1,1,1,1,0
+stone,S,4,R41,pri18,10,10,10,10,10,10,10,0
+stone,S,4,R410,pri18,2,2,2,2,2,2,2,0
+stone,S,4,R42,pri18,2,2,2,3,3,3,3,0
+stone,S,4,R43,ng,0,0,0,0,0,0,0,0
+stone,S,4,R44,pri18,2,2,2,2,2,2,2,0
+stone,S,4,R45,pri18,2,2,2,2,2,2,2,0
+stone,S,4,R46,pri18,4,4,4,4,4,4,4,0
+stone,S,4,R47,ver18,0,1,1,1,1,1,1,0
+stone,S,4,R48,ng,0,0,0,0,0,0,0,0
+stone,S,4,R49,pri18,3,3,3,11,11,11,11,0
+stone,S,5,R51,pri18,3,3,3,3,3,3,3,0
+stone,S,5,R510,ng,0,0,0,0,0,0,0,0
+stone,S,5,R52,pri18,3,3,3,3,3,3,3,0
+stone,S,5,R53,ng,0,0,0,0,0,0,0,0
+stone,S,5,R54,pri18,3,3,3,3,3,3,3,0
+stone,S,5,R55,pri18,4,4,4,4,4,4,4,0
+stone,S,5,R56,pri18,2,2,2,2,2,2,2,0
+stone,S,5,R57,pri18,1,1,1,1,1,1,1,0
+stone,S,5,R58,ng,0,0,0,0,0,0,0,0
+stone,S,5,R59,pri18,1,1,1,2,2,2,2,0

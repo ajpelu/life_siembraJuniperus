@@ -1,0 +1,125 @@
+---
+title: "Germination"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("here")
+library("tidyverse")
+```
+
+### Siembra
+- S (Bérchules) (24/04/2017)
+- N (Haza Mesa) (05/05/2017)
+
+```{r}
+raw <- read_csv(here::here("/data/revision_siembras_all.csv"))
+m <- read_csv(here::here("/data/revision_siembras_all_md.csv"))
+sowing <- read_csv(here::here("/data/dicc_sowing_stations.csv"))
+
+
+
+
+df <- raw %>% 
+  filter(!(IdVisita %in% c("2017_6","2017_7"))) %>% # remove data 2017 
+  mutate(visit = case_when(
+    IdVisita %in% c("2018_1","2018_2") ~ "pri18",
+    IdVisita %in% c("2018_3","2018_4","2018_5") ~ "ver18",
+    IdVisita %in% c("2018_6","2018_7") ~ "oto18",
+    IdVisita %in% c("2019_1","2019_2") ~ "pri19",
+    IdVisita %in% c("2019_3","2019_4") ~ "oto19",
+    IdVisita %in% c("2020_1","2020_2") ~ "pri20",
+    IdVisita %in% c("2020_3","2020_4") ~ "oto20"
+  )) %>% 
+  dplyr::select(visit, station = codeSowing, jv = Juniperus_vivos, jm = Juniperus_muertos, bv = Berberis_vivos, bm = Berberis_muertos) 
+  
+
+jv <- df %>% 
+  dplyr::select(visit, station, jv) %>% 
+  pivot_wider(names_from = visit, values_from=jv) %>% 
+  relocate(station, pri18, ver18, oto18, pri19, oto19, pri20, oto20) %>% 
+  rename_with(~paste0(., "jv"), -c("station"))
+
+jm <- df %>% 
+  dplyr::select(visit, station, jm) %>% 
+  pivot_wider(names_from = visit, values_from=jm) %>% 
+  relocate(station, pri18, ver18, oto18, pri19, oto19, pri20, oto20) %>% 
+  rename_with(~paste0(., "jm"), -c("station"))
+
+j <- jv %>% inner_join(jm, by="station") %>% 
+  mutate(
+    microhabitat = case_when(
+      str_detect(station, "R") ~ "stone",
+      str_detect(station, "E") ~ "juniper",
+      str_detect(station, "B") ~ "wet meadow",
+      str_detect(station, "P") ~ "open ground",
+      str_detect(station, "G") ~ "genista")) %>% 
+  inner_join((sowing %>% dplyr::select(station, site, replica))) 
+
+write_csv(j, here::here("/data/germina_juniperus.csv"))
+
+bv <- df %>% 
+  dplyr::select(visit, station, bv) %>% 
+  pivot_wider(names_from = visit, values_from=bv) %>% 
+  relocate(station, pri18, ver18, oto18, pri19, oto19, pri20, oto20) %>% 
+  rename_with(~paste0(., "bv"), -c("station"))
+
+bm <- df %>% 
+  dplyr::select(visit, station, bm) %>% 
+  pivot_wider(names_from = visit, values_from=bm) %>% 
+  relocate(station, pri18, ver18, oto18, pri19, oto19, pri20, oto20) %>% 
+  rename_with(~paste0(., "bm"), -c("station"))
+
+b <- bv %>% inner_join(bm, by="station") %>% 
+  mutate(
+    microhabitat = case_when(
+      str_detect(station, "R") ~ "stone",
+      str_detect(station, "E") ~ "juniper",
+      str_detect(station, "B") ~ "wet meadow",
+      str_detect(station, "P") ~ "open ground",
+      str_detect(station, "G") ~ "genista")) %>% 
+  inner_join((sowing %>% dplyr::select(station, site, replica)))
+
+write_csv(b, here::here("/data/germina_berberis.csv"))
+
+```
+
+```{r}
+# Select los que tiene germinacion
+
+rawg <- raw %>% filter(codeSowing %in% 
+                         c("G14","G15","G16","G17","G18","G110",
+                           "G21","G210",
+                           "G31","G32","G33","G34",
+                           "E13","E14","E19","E110",
+                           "E21","E23","E24",
+                           "E31","E32","E36","E310",
+                           "P310",
+                           "R11","R12","R14","R17",
+                           "R22","R24","R26",
+                           "R34","R35","R36","R38",
+                           "R41","R42","R45",
+                           "R51","R52","R56","R510",
+                           "B21","B23",
+                           "B31","B33","B34","B38","B39",
+                           "B43","B48","B410",
+                           "B51","B510"))
+
+write_csv(rawg, here::here("/data/germina_juniperus_positivos.csv"))
+```
+
+
+
+
+
+
+
+
+
+

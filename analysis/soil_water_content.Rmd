@@ -1,0 +1,188 @@
+---
+title: "water_content_soil"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("here")
+library("tidyverse")
+library("readxl")
+library("lubridate")
+```
+
+```{r}
+wsc_dani <- read_excel(
+  here::here("data/datos_tesis_dani/WaterContent_Soil.xls"))
+
+
+names(wsc_dani) <- c("date","microhabitat","sowing_station", "peso_humedo_gr", "peso_seco_gr", "mes", "year",
+  "phgr", "psgr", "water_gr", "water_pct", "water_tr_pct")
+
+w <- wsc_dani %>% mutate(
+  date = as.Date(date, format="%Y-%m-%d")
+)
+```
+
+# Temporal evolution of WS
+
+```{r}
+wmean <- w %>% 
+  group_by(date, microhabitat) %>% 
+  summarise(
+    m = mean(water_pct), 
+    sd = sd(water_pct),
+    se = sd / sqrt(n()) 
+  )
+  
+naaa <- data.frame(
+  date = seq(ymd('1996-11-15'),ymd('1997-03-15'), by = 'months'),
+  microhabitat = unique(wmean$microhabitat), 
+  m = rep(NA, 5), sd = rep(NA, 5), se = rep(NA, 5)
+)
+
+wdf <- wmean %>% bind_rows(naaa)
+#"#fb9a99", 
+paleto <- c("#999999","#56B4E9", "#009E73","#000000", "#E69F00") 
+
+wdf %>% ggplot(aes(x=floor_date(date, "month"), y=m, colour=microhabitat, 
+                     fill = microhabitat)) +
+  geom_point() + geom_line() + 
+  geom_errorbar(aes(ymin = m - se, ymax= m + se), width= 1.5, size=.5) + 
+ #  facet_wrap(~ microhabitat, nrow = 5) + 
+  scale_x_date(breaks = date_breaks("1 months"), 
+               labels = date_format("%b %Y")) +
+  theme_bw() +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)
+  ) +
+  ylab("Soil Water Content (%)") + xlab("") +
+    scale_colour_manual(values=paleto) + 
+  scale_fill_manual(values=paleto) 
+
+
+
+ggsave(here::here("figures/water_content_soil_dani.pdf"), width = 21, height = 12, units = "cm")
+
+
+  
+
+```
+
+```{r}
+w <- w %>% 
+  unite(col = "my", mes:year, remove=FALSE, sep="") %>% 
+  mutate(season = 
+           case_when(
+             my %in% c("mayo1996", "junio1996") ~ "00_Spring1996",
+             my %in% c("julio1996", "agosto1996", "septiembre1996") ~ "01_Summer1996",
+             my %in% c("octubre1996") ~ "02_Autunm1996",
+             my %in% c("abril1997", "mayo1997", "junio1997") ~ "10_Spring1997",
+             my %in% c("julio1997", "agosto1997", "septiembre1997") ~ "11_Summer1997",
+             my %in% c("octubre1997") ~ "12_Spring1997"
+           ))
+
+wmean_season <- w %>% 
+  group_by(season, microhabitat) %>% 
+  summarise(
+    m = mean(water_pct), 
+    sd = sd(water_pct),
+    se = sd / sqrt(n()) 
+  ) %>% 
+  mutate(site = "N", 
+         microhabitat = case_when(
+           microhabitat == "bajo roca" ~ "stone",
+           microhabitat == "borreguil" ~ "wet meadow",
+           microhabitat == "planta" ~ "juniper",
+           microhabitat == "roca" ~ "upper stone",
+           microhabitat == "suelo desnudo" ~ "open ground"))
+
+```
+
+
+
+```{r}
+# Datos ahora 
+
+raw <- read_csv(here::here("/data/revision_siembras_all.csv"))
+m <- read_csv(here::here("/data/revision_siembras_all_md.csv"))
+sowing <- read_csv(here::here("/data/dicc_sowing_stations.csv"))
+
+df <- raw %>% 
+  filter(!(IdVisita %in% c("2017_6","2017_7"))) %>% # remove data 2017 
+  mutate(visit = case_when(
+    IdVisita %in% c("2018_1","2018_2") ~ "20_Spring18",
+    IdVisita %in% c("2018_3","2018_4","2018_5") ~ "21_Summer18",
+    IdVisita %in% c("2018_6","2018_7") ~ "22_Autumn18",
+    IdVisita %in% c("2019_1","2019_2") ~ "30_Spring19",
+    IdVisita %in% c("2019_3","2019_4") ~ "31_Autumn19",
+    IdVisita %in% c("2020_1","2020_2") ~ "40_Spring20",
+    IdVisita %in% c("2020_3","2020_4") ~ "41_Autumn20"
+  )) %>% 
+  dplyr::select(visit, station = codeSowing, Humedad) %>% 
+  mutate(
+    microhabitat = case_when(
+      str_detect(station, "R") ~ "stone",
+      str_detect(station, "E") ~ "juniper",
+      str_detect(station, "B") ~ "wet meadow",
+      str_detect(station, "P") ~ "open ground",
+      str_detect(station, "G") ~ "genista")) %>% 
+  inner_join((sowing %>% dplyr::select(station, site))) %>% 
+  rename(season = visit) 
+
+
+wmean_season20 <- df %>% 
+  filter(Humedad >= 0) %>% 
+  group_by(season, microhabitat, site) %>% 
+  summarise(
+    m = mean(Humedad, na.rm = TRUE), 
+    sd = sd(Humedad, na.rm = TRUE),
+    se = sd / sqrt(n()) 
+  )
+
+water <- bind_rows(wmean_season, wmean_season20) %>% 
+  mutate(year = case_when(
+     str_detect(season, "1996") ~ "1996",
+     str_detect(season, "1997") ~ "1997",
+     str_detect(season, "18") ~ "2018",
+     str_detect(season, "19") ~ "2019",
+     str_detect(season, "20") ~ "2020"))
+```
+
+
+```{r}
+paleto <- c("#fb9a99", "#009E73", "#E69F00", "#999999", "#000000", "#56B4E9")
+
+
+water %>% 
+  ggplot(aes(x=season, y=m, colour=microhabitat, 
+                     fill = microhabitat)) +
+  geom_bar(stat="identity", position=position_dodge(width=0.9), width = 0.7)  + 
+  geom_errorbar(aes(ymin = m - se, ymax= m + se), 
+                position=position_dodge(width=0.9), width=0.5) +
+    theme_bw() +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), 
+    strip.background = element_blank(),
+    legend.position = "bottom") +
+  ylab("Soil Water Content (%)") + xlab("") + 
+  scale_colour_manual(values=paleto) + 
+  scale_fill_manual(values=paleto) +
+  facet_grid(. ~ year, scales = "free_x") 
+
+
+ggsave(here::here("figures/water_content_soil.jpg"), width = 21, height = 12, units = "cm")
+
+```
+
+
+
+
+

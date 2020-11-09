@@ -1,9 +1,0 @@
-attributeName attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-IdVisita  Visit ID  categorical				
-codeSowing  Sowing unit code  categorical				
-Berberis_vivos  number of living Berberis hispanica individuals numeric	dimensionless			
-Berberis_muertos  number of dead Berberis hispanica individuals numeric	dimensionless			
-Juniperus_vivos		number of dead Juniperus hispanica individuals  numeric	dimensionless			
-Juniperus_muertos number of dead Juniperus hispanica individuals  numeric	dimensionless			
-Humedad	soil volumetric water content	numeric	percentage		NA	not measured
-observaciones	field observations	categorical				

@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eml:eml system="https://pasta.edirepository.org" packageId="adaptamed.sierranevada.a5" xmlns:eml="https://eml.ecoinformatics.org/eml-2.2.0" xmlns:stmml="http://www.xml-cml.org/schema/stmml-1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://eml.ecoinformatics.org/eml-2.2.0 https://nis.lternet.edu/schemas/EML/eml-2.2.0/xsd/eml.xsd">
+    <access system="https://pasta.edirepository.org" scope="document" order="allowFirst" authSystem="https://pasta.edirepository.org/authentication">
+        <allow>
+            <principal>https://github.com/ajpelu</principal>
+            <permission>all</permission>
+        </allow>
+        <allow>
+            <principal>public</principal>
+            <permission>read</permission>
+        </allow>
+    </access>
+    <dataset>
+        <title>Data of seedling emergence and seedling survival of Mediterranean high mountain scrublands (<i>Juniperus communis</i> and <i>Berberis hispanica</i>) in Sierra Nevada (Spain). 2017-2020</title>
+        <creator>
+            <individualName>
+                <givenName>Antonio Jesús</givenName>
+                <surName>Pérez-Luque</surName>
+            </individualName>
+            <organizationName>Laboratory of Ecology, Andalusian Institute for Earth System Research - University of Granada</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                <deliveryPoint>Centro Andaluz de Medio Ambiente. Avda. Mediterraneo sn </deliveryPoint>
+                <city>Granada</city>
+                <administrativeArea>GRANADA</administrativeArea>
+                <postalCode>18006</postalCode>
+                <country>Spain</country>
+            </address>
+            <phone phonetype="voice">+34 958249758</phone>
+            <electronicMailAddress>ajperez@ugr.es</electronicMailAddress>
+            <onlineUrl>http://www.iecolab.es</onlineUrl>
+            <userId directory="https://orcid.org">0000-0002-1747-0469</userId>
+        </creator>
+        <creator>
+            <individualName>
+                <givenName>Regino</givenName>
+                <surName>Zamora Rodríguez</surName>
+            </individualName>
+            <organizationName>Department of Ecology. University of Granada</organizationName>
+            <positionName>Professor</positionName>
+            <address>
+                <deliveryPoint>Departamento de Ecología. Facultad de Ciencias, Avda. Fuentenueva, sn</deliveryPoint>
+                <city>Granada</city>
+                <postalCode>18071</postalCode>
+                <country>Spain</country>
+            </address>
+            <electronicMailAddress>rzamora@ugr.es</electronicMailAddress>
+            <userId directory="https://orcid.org">0000-0002-5049-9968</userId>
+        </creator>
+        <metadataProvider>
+            <individualName>
+                <givenName>Antonio Jesús</givenName>
+                <surName>Pérez-Luque</surName>
+            </individualName>
+            <organizationName>Laboratory of Ecology, Andalusian Institute for Earth System Research - University of Granada</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                <deliveryPoint>Centro Andaluz de Medio Ambiente. Avda. Mediterráneo sn</deliveryPoint>
+                <city>Granada</city>
+                <administrativeArea>GRANADA</administrativeArea>
+                <postalCode>18006</postalCode>
+                <country>Spain</country>
+            </address>
+            <phone phonetype="voice">958249758</phone>
+            <electronicMailAddress>ajperez@ugr.es</electronicMailAddress>
+            <userId directory="https://orcid.org">0000-0002-1747-0469</userId>
+        </metadataProvider>
+        <abstract>
+<para>Germination and survival data of Juniperus communis and Berberis hispanica, two species of Mediterranean high mountain scrub, present in Sierra Nevada (Spain). Within the LIFE-ADAPTAMED project (Protection of key ecosystem services by adaptive management of climate change endangered mediterranean socioecosystems; LIFE14 CCA/ES/000612) several restoration actions are being carried out to restore singular ecosystems of the Sierra Nevada high-mountain, such us the high-mountain scrublands (5120 Mountain Cytisus purgans formations of the Habitat Directive). Seeds of Juniperus communis and Berberis hispanica were sowed in two areas of the Sierra Nevada. 210 sowing stations (15 seeds per species) were set up in two contrasting slopes (northeren and southern) of Sierra Nevada. Within each site, several optimal microhabitats were selected: under stone, open ground, wet meadows, under Juniperus, under Genista. The sowings were set up in 2017 and were periodically reviewed (2-3 times a year), to quantify the success of germination and establishment between microhabitats, and thus be able to identify the most propitious places for the regeneration of the juniper in the Sierra Nevada in a scenario of global change.</para>
+</abstract>
+        <keywordSet>
+            <keyword>seedling emergence</keyword>
+            <keyword>seedling survival rate</keyword>
+            <keyword>volumetric water content</keyword>
+            <keyword keywordType="taxonomic">Juniperus communis</keyword>
+            <keyword keywordType="taxonomic">Berberis hispanica</keyword>
+            <keyword>high-mountain shrubland</keyword>
+            <keyword keywordType="place">Sierra Nevada (Spain)</keyword>
+            <keyword>adaptamed</keyword>
+        </keywordSet>
+        <intellectualRights>This information is released under the Creative Commons license - Attribution - CC BY (https://creativecommons.org/licenses/by/4.0/). The consumer of these data ("Data User" herein) is required to cite it appropriately in any publication that results from its use. The Data User should realize that these data may be actively used by others for ongoing research and that coordination may be necessary to prevent duplicate publication. The Data User is urged to contact the authors of these data if any questions about methodology or results occur. Where appropriate, the Data User is encouraged to consider collaboration or co-authorship with the authors. The Data User should realize that misinterpretation of data may occur if used out of context of the original study. While substantial efforts are made to ensure the accuracy of data and associated documentation, complete accuracy of data sets cannot be guaranteed. All data are made available "as is." The Data User should be aware, however, that data are updated periodically and it is the responsibility of the Data User to check for new versions of the data. The data authors and the repository where these data were obtained shall not be liable for damages resulting from any use or misinterpretation of the data. Thank you.</intellectualRights>
+        <coverage>
+            <geographicCoverage>
+                <geographicDescription>Seeds were sowing in two locations of the Sierra Nevada: the northern site "Acequia de Haza Mesa", where there are currently juniper trees in relatively good condition; and the southern site: "Acequia de Bérchules", where there are no longer any formations of juniper, although there are still scattered junipers. 
+
+Sierra Nevada Mountain site, alpine forests Sierra Nevada (Andalusia, SE Spain), is a mountainous region with an altitudinal range between 860 m and 3482 m a.s.l. covering more than 2000 km2. The climate is Mediterranean, characterized by cold winters and hot summers, with pronounced summer drought (July-August). The annual average temperature decreases in altitude from 12-16ºC below 1500 m to 0ºC above 3000 m a.s.l., and the annual average precipitation is about 600 mm. Additionally, the complex orography of the mountains causes strong climatic contrasts between the sunny, dry south-facing slopes and the shaded, wetter north-facing slopes. Annual precipitation ranges from less than 250 mm in the lowest parts of the mountain range to more than 700 mm in the summit areas. Winter precipitation is mainly in the form of snow above 2000 m of altitude. The Sierra Nevada mountain range hosts a high number of endemic plant species (c. 80; Lorite et al. 2007) for a total of 2,100 species of vascular plants (25% and 20% of Spanish and European flora, respectively), being considered one of the most important biodiversity hotspots in the Mediterranean region. This mountain range has several legal protections: Biosphere Reserve MAB Committee UNESCO; Special Protection Area and Site of Community Importance (Natura 2000 network); and National Park. The area includes 61 municipalities with more than 90,000 inhabitants. The main economic activities are agriculture, tourism, cattle raising, beekeeping, mining, and skiing.</geographicDescription>
+                <boundingCoordinates>
+                    <westBoundingCoordinate>-3.373816</westBoundingCoordinate>
+                    <eastBoundingCoordinate>-3.2283</eastBoundingCoordinate>
+                    <northBoundingCoordinate>37.10203</northBoundingCoordinate>
+                    <southBoundingCoordinate>37.06987</southBoundingCoordinate>
+                </boundingCoordinates>
+            </geographicCoverage>
+            <temporalCoverage>
+                <rangeOfDates>
+                    <beginDate>
+                        <calendarDate>2017</calendarDate>
+                    </beginDate>
+                    <endDate>
+                        <calendarDate>2020</calendarDate>
+                    </endDate>
+                </rangeOfDates>
+            </temporalCoverage>
+            <taxonomicCoverage>
+                <generalTaxonomicCoverage>Juniperus communis L. 
+</generalTaxonomicCoverage>
+                <taxonomicClassification>
+                    <taxonRankName>Species</taxonRankName>
+                    <taxonRankValue>Juniperus communis</taxonRankValue>
+                </taxonomicClassification>
+            </taxonomicCoverage>
+            <taxonomicCoverage>
+                <generalTaxonomicCoverage>Berberis hispanica Boiss. and Reut.</generalTaxonomicCoverage>
+                <taxonomicClassification>
+                    <taxonRankName>Species</taxonRankName>
+                    <taxonRankValue>Berberis hispanica</taxonRankValue>
+                </taxonomicClassification>
+            </taxonomicCoverage>
+        </coverage>
+        <maintenance>
+            <description>
+<para>The dataset will be updating the next year</para>
+</description>
+            <maintenanceUpdateFrequency>annually</maintenanceUpdateFrequency>
+        </maintenance>
+        <contact>
+            <individualName>
+                <givenName>Antonio Jesús</givenName>
+                <surName>Pérez-Luque</surName>
+            </individualName>
+            <organizationName>Laboratory of Ecology, Andalusian Institute for Earth System Research - University of Granada</organizationName>
+            <positionName>Researcher</positionName>
+            <address>
+                <deliveryPoint>Centro Andaluz de Medio Ambiente. Avda. Mediterráneo sn</deliveryPoint>
+                <city>Granada</city>
+                <administrativeArea>GRANADA</administrativeArea>
+                <postalCode>18006</postalCode>
+                <country>Spain</country>
+            </address>
+            <phone phonetype="voice">958249758</phone>
+            <electronicMailAddress>ajperez@ugr.es</electronicMailAddress>
+            <onlineUrl>http://www.iecolab.es</onlineUrl>
+            <userId directory="https://orcid.org">0000-0002-1747-0469</userId>
+        </contact>
+        <publisher></publisher>
+        <methods>
+            <methodStep>
+                <description>
+<para>Sowing desing for restoration of the scrubland in Sierra Nevada</para>
+<para>Seeds were sowing in two locations susceptible to recovering the juniper, both on the north and south sides of the Sierra Nevada. The restoration sites are areas within the distribution of high-mountain scrublands, with have suitable conditions to carry out a restoration of junipers.</para>
+<para>The ecological conditions are very similar (e.g. exposure, altitude, soil type) to those of the juniper patches. On the northern side ("Acequia de Haza Mesa"), where there are currently juniper trees in relatively good condition, restoration is being carried out with sowings and plantations. On the southern side, where there are no longer any formations of juniper, although there are still scattered junipers, only seed sowing has been done to determine if the current collapse in the regeneration of the juniper tree on the southern slope is fundamentally due to a problem of limitation in the arrival of seeds, as a consequence of the very small number of adult junipers present.</para>
+<para>The sowings have been carried out in the following microhabitats: 1) under juniper, 2) under genista, 3) under stone, 4) wet meadow, and 5) in open ground. 150 sowing stations were set up on north face (30 units per microhabitat), and 60 sowing stations on the south side (30 units per microhabitat; only under stone, wet meadow, and open ground microhabitats are present).</para>
+<para>In autumn 2016, 3150 filled seeds of Juniperus and 3150 seeds of Berberis hispanica were randomly taken from a sample of bird-dispersed seeds collected near the study site. In each sowing station 15 seeds of each species were homogeneously distributed and sown at 1 cm deep in the soil. Sowing stations were protected against seed predators by a wire cage of 20x30x10 cm and 1 cm mesh.</para>
+<para>They sowing stations were monitored 2-3 times a yerar for seedling emergence from spring 2017 to autumn 2020. For each sowing station, soil moisture (in volumetric water content, VWC) was measured along the first 20 cm depth (with a TDR mod 150; Spectrum Technologies, Inc., Plainfield, IL, USA).</para>
+</description>
+            </methodStep>
+        </methods>
+        <project>
+            <title>LIFE ADAPTAMED - Protection of key ecosystem services by adaptive management of Climate Change endangered Mediterranean socioecosystems</title>
+            <personnel>
+                <individualName>
+                    <givenName>Regino</givenName>
+                    <surName>Zamora Rodríguez</surName>
+                </individualName>
+                <organizationName>Departamento de Ecología. Universidad de Granada</organizationName>
+                <address>
+                    <deliveryPoint>Centro Andaluz de Medio Ambiente. Avda. Mediterráneo sn</deliveryPoint>
+                    <city>Granada</city>
+                    <administrativeArea>GRANADA</administrativeArea>
+                    <postalCode>18006</postalCode>
+                    <country>Spain</country>
+                </address>
+                <electronicMailAddress>rzamora@ugr.es</electronicMailAddress>
+                <userId directory="https://orcid.org">0000-0002-5049-9968</userId>
+                <role>Principal Investigator</role>
+            </personnel>
+            <abstract>
+<para>Climate change constitutes the most important challenge that our society is currently facing. Nowadays, there is a general consensus on the magnitude of the changes in our planet due to the impact caused by human activities. The services that can be provided by natural ecosystems are currently being negatively affected by Climate Change and, on the basis of current data, this affection is expected to increase in the future. Life Adaptamed aims to mitigate the negative effect of Climate Change on key ecosystem services provided by three representative Mediterranean Natural Protected Areas (Cabo de Gata-Níjar Natural Park, Doñana National and Natural Park and Sierra Nevada and Natural Park) to local inhabitants and their socioeconomic sector. To achieve this objective Life Adaptamed’s central actions will follow an adaptive management framework tested in a pilot scale, aimed to improve resilience of the targeted socioecosystems. Communication and dissemination actions will ensure that the project results are effectively spread and fit the objectives established for the transferability of the project. A temporal and spatial multiscale indicator system will be implemented through monitoring the impact of the project actions. Life Adaptamed (LIFE14 CCA/ES/000612) is funded by the European Commission through the Life Program. The project is guided by the Regional Government of Andalusia and several scientific, dissemination and conservationist institutions are also involved. It is considered as basis for the implementation of the Andalusian Global Change Observatories Network, and constitutes a demonstrative initiative to incorporate the ecosystem functioning and services dimension into the adaptive management.</para>
+<para>The project focuses on developing, implementing, monitoring, evaluating and disseminating adaptative management measures, with an ecosystemic approach, addressed to those socio-ecosystems identified as key for the provision of, among others, soil retention, polinization, pastures (net primary production), temperature regulation, water provision, prevention of forest fires and of desertification. These socio-ecosystems and the services they provide are currently being negatively affected by Climate Change (from now CC) and, on the basis of current data, this affection is expected to increase significantly in the future. For this reason, the project actions aim to reduce the negative impact of CC in the NPAs area of influence and their socioeconomic fabric by focusing on implementing specific adaptive measures addressed to those key socio-ecosystems with a major role in the provision of the aforementioned ecosystem services. As a result of this, an increase in the resilience of the concerned socio-ecosystems is expected, in such a way that their future provision of services will also be improved, if compared to the scenario of no intervention.</para>
+</abstract>
+            <award>
+                <funderName>LIFE Programme European Commision</funderName>
+                <awardNumber>LIFE14 CCA/ES/000612</awardNumber>
+                <title>Protection of key ecosystem services by adaptive management of Climate Change endangered Mediterranean socioecosystems</title>
+                <awardUrl>https://ec.europa.eu/environment/life/project/Projects/index.cfm?fuseaction=search.dspPage&amp;n_proj_id=5248</awardUrl>
+            </award>
+        </project>
+        <dataTable>
+            <entityName>emergence_data</entityName>
+            <entityDescription>Date of seedling emergence, survival and soil moisture</entityDescription>
+            <physical>
+                <objectName>emergence_data.csv</objectName>
+                <size>97508</size>
+                <authentication method="MD5">ae1d736e4d79a7a0b4ec37cf35cff3cb</authentication>
+                <dataFormat>
+                    <textFormat>
+                        <numHeaderLines>1</numHeaderLines>
+                        <recordDelimiter>\n</recordDelimiter>
+                        <attributeOrientation>column</attributeOrientation>
+                        <simpleDelimited>
+                            <fieldDelimiter>,</fieldDelimiter>
+                            <quoteCharacter>"</quoteCharacter>
+                        </simpleDelimited>
+                    </textFormat>
+                </dataFormat>
+            </physical>
+            <attributeList>
+                <attribute>
+                    <attributeName>station</attributeName>
+                    <attributeLabel>station</attributeLabel>
+                    <attributeDefinition>code of the sowing station. See sowing stations table</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>code of the sowing station. See sowing stations table</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>date</attributeName>
+                    <attributeLabel>date</attributeLabel>
+                    <attributeDefinition>season of the measure</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <enumeratedDomain enforced="yes">
+                                    <codeDefinition>
+                                        <code>au18</code>
+                                        <definition>Autumn 2018</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>au19</code>
+                                        <definition>Autumn 2019</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>au20</code>
+                                        <definition>Autumn 2020</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>sp18</code>
+                                        <definition>Spring 2018</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>sp19</code>
+                                        <definition>Spring 2019</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>sp20</code>
+                                        <definition>Spring 2020</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>su18</code>
+                                        <definition>Summer 2018</definition>
+                                    </codeDefinition>
+                                </enumeratedDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                    <missingValueCode>
+                        <code>NA</code>
+                        <codeExplanation>no data</codeExplanation>
+                    </missingValueCode>
+                </attribute>
+                <attribute>
+                    <attributeName>variable</attributeName>
+                    <attributeLabel>variable</attributeLabel>
+                    <attributeDefinition>code of the variable used in the dataset. See table dicc_variables. </attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <enumeratedDomain enforced="yes">
+                                    <codeDefinition>
+                                        <code>emergenceB</code>
+                                        <definition>seedling emergence of Berberis hispanica</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>emergenceJ</code>
+                                        <definition>seedling emergence of Juniperus communis</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>survivalB</code>
+                                        <definition>seedling survival of Berberis hispanica at the end of the study period</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>survivalJ</code>
+                                        <definition>seedling survival of Juniperus communis at the end of the study period</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>vwc</code>
+                                        <definition>soil volumetric water content</definition>
+                                    </codeDefinition>
+                                </enumeratedDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>value</attributeName>
+                    <attributeLabel>value</attributeLabel>
+                    <attributeDefinition>Value of the variable</attributeDefinition>
+                    <measurementScale>
+                        <ratio>
+                            <unit>
+                                <customUnit>variuos</customUnit>
+                            </unit>
+                            <numericDomain>
+                                <numberType>real</numberType>
+                            </numericDomain>
+                        </ratio>
+                    </measurementScale>
+                    <missingValueCode>
+                        <code>NA</code>
+                        <codeExplanation>no data</codeExplanation>
+                    </missingValueCode>
+                </attribute>
+            </attributeList>
+            <caseSensitive>no</caseSensitive>
+            <numberOfRecords>4830</numberOfRecords>
+        </dataTable>
+        <dataTable>
+            <entityName>sowing_stations</entityName>
+            <entityDescription>Features of the sowing stations </entityDescription>
+            <physical>
+                <objectName>sowing_stations.csv</objectName>
+                <size>10560</size>
+                <authentication method="MD5">1a9d08e6a01fcc4e71a70430dd1ff852</authentication>
+                <dataFormat>
+                    <textFormat>
+                        <numHeaderLines>1</numHeaderLines>
+                        <recordDelimiter>\n</recordDelimiter>
+                        <attributeOrientation>column</attributeOrientation>
+                        <simpleDelimited>
+                            <fieldDelimiter>,</fieldDelimiter>
+                            <quoteCharacter>"</quoteCharacter>
+                        </simpleDelimited>
+                    </textFormat>
+                </dataFormat>
+            </physical>
+            <attributeList>
+                <attribute>
+                    <attributeName>x</attributeName>
+                    <attributeLabel>longitude coordinates (EPSG 4326)</attributeLabel>
+                    <attributeDefinition>x coordinate</attributeDefinition>
+                    <measurementScale>
+                        <ratio>
+                            <unit>
+                                <standardUnit>degree</standardUnit>
+                            </unit>
+                            <numericDomain>
+                                <numberType>real</numberType>
+                            </numericDomain>
+                        </ratio>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>y</attributeName>
+                    <attributeLabel>y</attributeLabel>
+                    <attributeDefinition>latitude coordinates (EPSG 4326)</attributeDefinition>
+                    <measurementScale>
+                        <ratio>
+                            <unit>
+                                <standardUnit>degree</standardUnit>
+                            </unit>
+                            <numericDomain>
+                                <numberType>real</numberType>
+                            </numericDomain>
+                        </ratio>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>slope</attributeName>
+                    <attributeLabel>slope</attributeLabel>
+                    <attributeDefinition>contrasting slope of the Sierra Nevada </attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <enumeratedDomain enforced="yes">
+                                    <codeDefinition>
+                                        <code>N</code>
+                                        <definition>Northern site</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>S</code>
+                                        <definition>Southern Site</definition>
+                                    </codeDefinition>
+                                </enumeratedDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>station</attributeName>
+                    <attributeLabel>station</attributeLabel>
+                    <attributeDefinition>code of the sowing station. The structure are: E110: First letter indicates the microhabitat (R: under stone; E: under Juniperus; G: under Genista; P: open ground; B: wet meadow); the following number indicates the replicate (1 to 5); the following numbers indicate de station number within each replicates (1 to 10)</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>code of the sowing station. The structure are: E110: First letter indicates the microhabitat (R: under stone; E: under Juniperus; G: under Genista; P: open ground; B: wet meadow); the following number indicates the replicate (1 to 5); the following numbers indicate de station number within each replicates (1 to 10)</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>microhabitat</attributeName>
+                    <attributeLabel>microhabitat</attributeLabel>
+                    <attributeDefinition>Microhabitat where the sowing stations were set up.</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <enumeratedDomain enforced="yes">
+                                    <codeDefinition>
+                                        <code>genista</code>
+                                        <definition>sowing station under Genista (code as G)</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>juniper</code>
+                                        <definition>sowing station under Juniper (code as E)</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>open ground</code>
+                                        <definition>sowing station at open ground (code as P)</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>stone</code>
+                                        <definition>sowing station under stones (code as R)</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>wet meadow</code>
+                                        <definition>sowing station on wet meadows (code as B)</definition>
+                                    </codeDefinition>
+                                </enumeratedDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>site_name</attributeName>
+                    <attributeLabel>site_name</attributeLabel>
+                    <attributeDefinition>Locality name of the study area</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <enumeratedDomain enforced="yes">
+                                    <codeDefinition>
+                                        <code>Berchules</code>
+                                        <definition>Acequia de Bérchules (southern site of Sierra Nevada)</definition>
+                                    </codeDefinition>
+                                    <codeDefinition>
+                                        <code>Haza Mesa</code>
+                                        <definition>Acequia de Haza Mesa (northern site of Sierra Nevada). Near to Campos de Otero</definition>
+                                    </codeDefinition>
+                                </enumeratedDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+            </attributeList>
+            <caseSensitive>no</caseSensitive>
+            <numberOfRecords>210</numberOfRecords>
+        </dataTable>
+        <dataTable>
+            <entityName>dicc_variables</entityName>
+            <entityDescription>Variables description </entityDescription>
+            <physical>
+                <objectName>dicc_variables.csv</objectName>
+                <size>715</size>
+                <authentication method="MD5">f63842058f0320a583733f004869f9b5</authentication>
+                <dataFormat>
+                    <textFormat>
+                        <numHeaderLines>1</numHeaderLines>
+                        <recordDelimiter>\n</recordDelimiter>
+                        <attributeOrientation>column</attributeOrientation>
+                        <simpleDelimited>
+                            <fieldDelimiter>,</fieldDelimiter>
+                            <quoteCharacter>"</quoteCharacter>
+                        </simpleDelimited>
+                    </textFormat>
+                </dataFormat>
+            </physical>
+            <attributeList>
+                <attribute>
+                    <attributeName>code</attributeName>
+                    <attributeLabel>code</attributeLabel>
+                    <attributeDefinition>code of the variable used in the dataset </attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>code of the variable used in the dataset </definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>name</attributeName>
+                    <attributeLabel>name</attributeLabel>
+                    <attributeDefinition>Name of the variable</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>Name of the variable</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>units</attributeName>
+                    <attributeLabel>units</attributeLabel>
+                    <attributeDefinition>Units of the variable</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>Units of the variable</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>variable_cv</attributeName>
+                    <attributeLabel>variable_cv</attributeLabel>
+                    <attributeDefinition>Name of the variable in the Controlled Vocabulary of LTER Europe</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>Name of the variable in the Controlled Vocabulary of LTER Europe</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+                <attribute>
+                    <attributeName>url_cv</attributeName>
+                    <attributeLabel>url_cv</attributeLabel>
+                    <attributeDefinition>url of the terms (controlled vocabulary LTER Europe) related with the variable measured</attributeDefinition>
+                    <storageType></storageType>
+                    <measurementScale>
+                        <nominal>
+                            <nonNumericDomain>
+                                <textDomain>
+                                    <definition>url of the terms (controlled vocabulary LTER Europe) related with the variable measured</definition>
+                                </textDomain>
+                            </nonNumericDomain>
+                        </nominal>
+                    </measurementScale>
+                </attribute>
+            </attributeList>
+            <caseSensitive>no</caseSensitive>
+            <numberOfRecords>5</numberOfRecords>
+        </dataTable>
+    </dataset>
+    <additionalMetadata>
+        <metadata>
+            <unitList>
+                <unit id="variuos" name="variuos">
+                    <description>depend on the variable</description>
+                </unit>
+            </unitList>
+        </metadata>
+    </additionalMetadata>
+</eml:eml>
