@@ -1,0 +1,173 @@
+---
+title: "Cummulative Rainfall"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("here")
+library("tidyverse")
+library("purrr")
+library("ggrepel")
+```
+
+
+```{r}
+# Read data from 29 statios (the same of the paper of Ecosystems )
+# - Download data from cn (Google Drive) 
+# - Create temporal folder (within Downloads)
+
+
+# WHERE cli_estaciones.codigo IN ('5501','5502','5504','5504A','5505','5509','5509A','5511E',
+# '5517','5518','6224','6234','6234E','6236','6242U','6243','6243E','6248','6251','6252','6253',
+# '6257','6257I','6280U','6281E','6282','6307','6307X','6308');
+
+# files <- # WHERE cli_estaciones.codigo IN ('5501','5502','5504','5504A','5505','5509','5509A','5511E',
+# '5517','5518','6224','6234','6234E','6236','6242U','6243','6243E','6248','6251','6252','6253',
+# '6257','6257I','6280U','6281E','6282','6307','6307X','6308');
+# 
+# data <- files %>%
+#   map(read_csv) %>% reduce(rbind)      
+# 
+# prec <- data %>% 
+#   filter(variable_id %in% c(29, 49)) %>% 
+#   filter(value >= 0) %>%  
+#   group_by(station_id, 
+#            month = lubridate::floor_date(time, "month")) %>% 
+#   summarise(prec = sum(value))
+# 
+# write_csv(prec, "/Users/ajpelu/Downloads/cn/prec_rediam_29_stations.csv")
+
+
+# # Not run 
+# # Data from PSN 
+# filespsn <- list.files("/Users/ajpelu/Downloads/psn", full.names =  TRUE)
+# 
+# psn <- filespsn %>%
+#   map(read_csv) %>% 
+#   reduce(rbind) %>% 
+#   filter(variable_id %in% c(11,49,98,102,108)) 
+#   
+# psn<- read_csv("/Users/ajpelu/Downloads/cn_PSN08_160.csv") %>% 
+#   filter(variable_id %in% c(11,49,98,102,108))
+# 
+# psn %>% filter(variable_id == 49) %>% 
+#   write_csv("/Users/ajpelu/Downloads/psn/df/psn_prec.csv") 
+# 
+# psn %>% filter(variable_id == 98) %>% 
+#   write_csv("/Users/ajpelu/Downloads/psn/df/psn_albedo.csv") 
+# 
+# psn %>% filter(variable_id == 11) %>% 
+#   write_csv("/Users/ajpelu/Downloads/psn/df/psn_humedad_relativa_aire.csv") 
+# 
+# psn %>% filter(variable_id == 102) %>% 
+#   write_csv("/Users/ajpelu/Downloads/psn/df/psn_temp_suelo.csv") 
+# 
+# psn %>% filter(variable_id == 108) %>% 
+#   write_csv("/Users/ajpelu/Downloads/psn/df/psn_temp_aire.csv") 
+# 
+
+```
+
+```{r}
+# Read data from cn and psn 
+
+prec <- read_csv(here::here("data/climate/prec_rediam_29_stations.csv"))
+
+# --- Data from psn 
+precpsn <- read_csv(here::here("data/climate/psn_prec.csv")) %>% 
+  group_by(station_id, 
+           month = lubridate::floor_date(time, "month")) %>% 
+  summarise(prec = sum(value))
+
+prec <- rbind(prec, precpsn)
+
+
+# Function to create a colunm with the hydrological year 
+# It's based on https://stackoverflow.com/questions/27626533/r-create-function-to-add-water-year-column 
+
+hydro_year <- function(dates, start_month=9) {
+  # Convert dates into POSIXlt
+  dates.posix = as.POSIXlt(dates)
+  # Year offset
+  offset = ifelse(dates.posix$mon >= start_month - 1, 1, 0)
+  # Water year
+  adj.year = dates.posix$year + 1900 + offset
+  # Return the water year
+  adj.year
+}
+
+
+
+dfpre <- prec %>% 
+  dplyr::mutate(fecha = as.Date(month, format='%d/%m/%Y'),  
+                mes = lubridate::month(fecha),
+         hmonth = ifelse(mes <= 8, mes + 4, mes -8), 
+         hyear = hydro_year(fecha),
+         hyear_f = paste0(hyear-1,'-', hyear))
+
+aux <- dfpre %>% 
+  group_by(hyear_f, station_id) %>% 
+  dplyr::mutate(csum = cumsum(prec)) %>% 
+  filter(hmonth == 12) %>% 
+  dplyr::select(-month, -mes, -prec, -fecha) %>% as.data.frame()
+
+presn <- aux %>% group_by(hyear) %>% 
+     dplyr::summarise(
+     csum_mean = mean(csum, na.rm = TRUE),
+     csum_sd = sd(csum, na.rm = TRUE), 
+     csum_se = csum_sd/sqrt(length(csum_sd)), 
+     n = n()) 
+
+meandf <- mean(presn$csum_mean)
+sddf <- sd(presn$csum_mean)
+
+yeah <- presn %>% filter(csum_mean < (meandf - 1*sddf)) %>% 
+  mutate(pos = csum_mean - 50) %>%  as.data.frame()
+
+
+
+prec_hydrol_sn <- ggplot(presn %>% filter(hyear > 1949), aes(x=hyear, y=csum_mean)) + 
+  geom_hline(yintercept = meandf) + 
+  geom_hline(yintercept = meandf + 2*sddf, color ='blue', linetype = 'dashed') +
+  geom_hline(yintercept = meandf - 2*sddf, color ='red', linetype = 'dashed') +
+  geom_hline(yintercept = meandf + 1*sddf, color ='blue', linetype = 'dotted') +
+  geom_hline(yintercept = meandf  - 1*sddf, color ='red', linetype = 'dotted') +
+  geom_errorbar(aes(ymin = csum_mean - csum_se, ymax= csum_mean + csum_se), width=.1, colour='gray') +
+  geom_point(size=2) + theme_bw() + 
+  geom_line(size=.25, colour = 'black') + 
+  scale_x_continuous(breaks=seq(1950,2020, by=5)) +
+  scale_y_continuous(breaks=seq(0,1500, by=250)) + 
+  # geom_text_repel(
+  #   data = yeah,
+  #   aes(label = hyear), 
+  #   size = 2.5, 
+  #   alpha = .5,
+  #   colour = "black",
+  #   segment.size = 0.1, 
+  #   segment.alpha = 0.5,
+  #   point.padding=unit(.7,'lines'),
+  #   nudge_y = -yeah$csum_mean,
+  #   direction = 'x'
+  #   ) +
+  theme(panel.grid = element_blank(),
+        axis.title = element_text(size = 9),
+        axis.text.y = element_text(size = 8)) +
+  ylab('Cumulative Precipitation (mm)') + xlab('Year') +
+  annotate("point", x = 1995, 
+           y = (presn %>% filter(hyear == 1995))$csum_mean,
+           colour = "orange", size = 5, alpha = .4) + 
+  annotate("point", x = 2017, 
+           y = (presn %>% filter(hyear == 2017))$csum_mean,
+           colour = "orange", size = 5, alpha = .4) 
+
+ggsave(here::here("figures/cummulate_rainfall.jpg"), width = 21, height = 10, units = "cm")
+
+```
+

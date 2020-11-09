@@ -1,0 +1,142 @@
+---
+title: "Germina Acumulada"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("here")
+library("tidyverse")
+```
+
+```{r}
+raw <- read_csv(here::here("/data/germina/germ_acumulada_juniperus.csv"))
+```
+
+
+### Siembra
+- sites: 
+    
+    - S (Bérchules) (24/04/2017)
+    - N (Haza Mesa) (05/05/2017)
+    
+- microhabitat (5) 
+
+### Summary 
+
+```{r}
+sowing <- raw %>% group_by(site, microhabitat) %>% count() %>% mutate(n_seeds = n*15) %>% rename(n_sowing_units= n)
+
+nogerminadas <- raw %>% filter(germ %in% c("ng", "out")) %>% group_by(site, microhabitat) %>% count() %>% rename(sowing_noGerm = n)
+
+e <- sowing %>% inner_join(nogerminadas) %>% knitr::kable() 
+```
+
+
+## 
+
+```{r}
+
+s <- raw %>% filter(germ !="out") %>% 
+  dplyr::select(microhabitat, site, station, germ, oto18,oto19,oto20) %>% 
+  mutate(ga18 = round(oto18/15*100, 2),
+         ga19 = round(oto19/15*100,2),
+         ga20 = round(oto20/15*100,2)) 
+
+p <- s %>% 
+  dplyr::select(-germ, -oto19, -oto18, -oto20) %>% 
+  group_by(microhabitat, site) %>% 
+  summarise(across(ga18:ga20, list(mean=mean, se = ~sd(.)/sqrt(length(.))))) 
+
+
+pmean <- p %>% dplyr::select(microhabitat, site, contains("mean")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year", 
+               names_pattern = "(....)",
+               values_to = "mean")
+
+pse <- p %>% dplyr::select(microhabitat, site, contains("se")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year",
+               names_pattern = "(....)",
+               values_to = "se")               
+                   
+ga <- pmean %>% inner_join(pse)
+
+paleto <- c("#fb9a99", "#009E73", "#E69F00", "#999999","#56B4E9")
+
+
+pos <- position_dodge(width = 0.9)
+enebritos <- ga %>% filter(site == "N") %>% 
+  ggplot(aes(x = year, y=mean, fill = microhabitat, colour = microhabitat,
+             ymin = mean - se, ymax = mean + se)) +
+  geom_bar(stat="identity", position=pos) + 
+  geom_errorbar(position=pos, width = .2) + 
+  scale_colour_manual(values=paleto) + 
+  scale_fill_manual(values=paleto) + 
+  theme_bw() + 
+  xlab("") + ylab("% of accumulated germination") +
+  ylim(0,10) + 
+  theme(
+    panel.grid = element_blank()
+  )
+# ggsave(here::here("/analysis/output/ger_acum_J.pdf"), 
+#                              width = 14, height = 10, units = "cm")
+enebritos 
+```
+
+
+```{r}
+compara <- s %>% 
+  filter(microhabitat %in% c("open ground", "stone", "wet meadow")) %>% 
+  dplyr::select(-germ, -oto19, -oto18, -oto20) %>% 
+  group_by(microhabitat, site) %>% 
+  summarise(across(ga18:ga20, list(mean=mean, se = ~sd(.)/sqrt(length(.))))) 
+
+
+compara_mean <- compara %>% dplyr::select(microhabitat, site, contains("mean")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year", 
+               names_pattern = "(....)",
+               values_to = "mean")
+
+compara_se <- compara  %>% dplyr::select(microhabitat, site, contains("se")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year",
+               names_pattern = "(....)",
+               values_to = "se")               
+                   
+compara_ga <- compara_mean %>% inner_join(compara_se)
+
+paleto_compara <- c("#E69F00", "#999999","#56B4E9")
+
+
+enebritos_compara <- compara_ga %>% 
+  ggplot(aes(x = year, y=mean, fill = microhabitat, colour = microhabitat,
+             ymin = mean - se, ymax = mean + se)) +
+  geom_bar(stat="identity", position=pos) + 
+  geom_errorbar(position=pos, width = .2) + 
+  scale_colour_manual(values=paleto_compara) + 
+  scale_fill_manual(values=paleto_compara) + 
+  facet_wrap(~site) +
+  theme_bw() + 
+  xlab("") + ylab("% of accumulated germination") +
+  ylim(0,10) + 
+  theme(
+    panel.grid = element_blank()
+  )
+
+ggsave(here::here("/analysis/output/ger_acum_J_compara.pdf"),
+                             width = 14, height = 10, units = "cm")
+enebritos_compara 
+
+```
+
+
+
+
