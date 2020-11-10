@@ -12,7 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 ```{r}
 library("here")
 library("tidyverse")
+library("readxl")
+library("lubridate")
 ```
+
+
+# Datos ahora 
 
 ```{r}
 raw <- read_csv(here::here("/data/germina/germ_acumulada_juniperus.csv"))
@@ -34,14 +39,15 @@ sowing <- raw %>% group_by(site, microhabitat) %>% count() %>% mutate(n_seeds = 
 
 nogerminadas <- raw %>% filter(germ %in% c("ng", "out")) %>% group_by(site, microhabitat) %>% count() %>% rename(sowing_noGerm = n)
 
-e <- sowing %>% inner_join(nogerminadas) %>% knitr::kable() 
+e <- sowing %>% inner_join(nogerminadas) 
+
+e %>% knitr::kable()
 ```
 
 
-## 
+## Germinación Enebros 
 
 ```{r}
-
 s <- raw %>% filter(germ !="out") %>% 
   dplyr::select(microhabitat, site, station, germ, oto18,oto19,oto20) %>% 
   mutate(ga18 = round(oto18/15*100, 2),
@@ -91,6 +97,181 @@ enebritos
 ```
 
 
+# Datos previos 
+
+Para replicar la figura 1 de GArcía (2001) tengo que tener en cuenta solamente los siguientes datos:
+
+- nº plantas germinadas al final de 97 
+
+
+```{r}
+raw97 <- read_excel(
+  here::here("data/datos_tesis_dani/Germination_1997.xls")) 
+names(raw97) <- c("date","microhabitat","sowing_station", 
+                  "vivas", "germinadas", "ga", "mes", "survival")
+
+
+ga97 <- raw97 %>% filter(mes == "octubre") %>% 
+  dplyr::select(microhabitat, sowing_station, germinadas97 = germinadas, ga97 = ga)
+
+raw98 <- read_excel(
+  here::here("data/datos_tesis_dani/Germination_1998.xls")) 
+names(raw98) <- c("date","microhabitat","sowing_station", 
+                  "nplantulas97", "vivas98", "germinadas", 
+                  "mes", "nplantas97_inicial", "nplantas97_final",
+                  "survival97", "survival98")
+
+ga98 <- raw98 %>% filter(mes == "octubre") %>% 
+  dplyr::select(microhabitat, sowing_station, germinadas) %>% 
+  mutate(g98 = round(germinadas / 30*100, 2)) %>% 
+  rename(germinadas98 = germinadas)
+
+ga_old<- ga97 %>% inner_join(ga98) %>% 
+  mutate(ga98 = ga97 + g98) %>% 
+  dplyr::select(-germinadas97, -germinadas98, -g98)
+
+
+ga_oldmeans <- ga_old %>% 
+  dplyr::select(-sowing_station) %>% 
+  group_by(microhabitat) %>% 
+  summarise(across(ga97:ga98, list(mean=mean, se = ~sd(.)/sqrt(length(.))))) 
+
+
+pmean_old <- ga_oldmeans %>% dplyr::select(microhabitat, contains("mean")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year", 
+               names_pattern = "(....)",
+               values_to = "mean")
+
+
+pse_old <- ga_oldmeans %>% dplyr::select(microhabitat, contains("se")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year",
+               names_pattern = "(....)",
+               values_to = "se")               
+                   
+gaa <- pmean_old %>% inner_join(pse_old) %>% 
+  mutate(site = "N", 
+         microhabitat = case_when(
+           microhabitat == "bajo roca" ~ "stone",
+           microhabitat == "borreguil" ~ "wet meadow",
+           microhabitat == "planta" ~ "juniper",
+           microhabitat == "roca" ~ "upper stone",
+           microhabitat == "suelo desnudo" ~ "open ground"))
+
+```
+
+
+```{r}
+emergence <- bind_rows(ga, gaa) %>% 
+  mutate(yearN = case_when(
+    year == "ga97" ~ 1997,
+    year == "ga98" ~ 1998,
+    year == "ga18" ~ 2018,
+    year == "ga19" ~ 2019,
+    year == "ga20" ~ 2020,
+  ))
+
+emergence_otero <- emergence %>% 
+  filter(site == "N") %>% 
+  filter(microhabitat %in%  c("juniper", "open ground","stone","wet meadow"))
+
+paleto <- c("#009E73", "#E69F00", "#999999","#56B4E9")
+# paleto <- c("#fb9a99", "#009E73", "#E69F00", "#999999", "#000000", "#56B4E9")
+
+
+pos <- position_dodge(width = 0.9)
+plot_emergence <- emergence_otero %>% 
+  ggplot(aes(x = as.factor(yearN), y=mean, fill = microhabitat, colour = microhabitat,
+             ymin = mean - se, ymax = mean + se)) +
+  geom_bar(stat="identity", position=pos) + 
+  geom_errorbar(position=pos, width = .2) + 
+  scale_colour_manual(values=paleto) + 
+  scale_fill_manual(values=paleto) + 
+  theme_bw() + 
+  xlab("") + ylab("% of accumulated germination") +
+  theme(
+    panel.grid.major = element_blank(), 
+    legend.position = c(.85,.7)
+  ) +
+    scale_y_continuous(
+    limits = c(0,60),
+    breaks = seq(0,60, 10)) 
+
+plot_emergence
+
+ggsave(here::here("/figures/ger_acum_Juniper.jpg"), 
+       width = 16, height = 10, units = "cm")
+
+```
+
+
+
+### Statistical analysis 
+
+```{r}
+aux <- s %>% dplyr::select(-oto18, -oto19, -oto20, -germ, -station)  %>% 
+    pivot_longer(cols=starts_with("ga"), 
+               names_to = "year",
+               names_pattern = "(....)",
+               values_to = "emergence")    
+  
+  
+aux_old <- ga_old %>% 
+  dplyr::select(-sowing_station) %>% 
+  mutate(site ="N", 
+         microhabitat = case_when(
+           microhabitat == "bajo roca" ~ "stone",
+           microhabitat == "borreguil" ~ "wet meadow",
+           microhabitat == "planta" ~ "juniper",
+           microhabitat == "roca" ~ "upper stone",
+           microhabitat == "suelo desnudo" ~ "open ground")) %>% 
+  pivot_longer(cols=starts_with("ga"), 
+               names_to = "year",
+               names_pattern = "(....)",
+               values_to = "emergence")    
+  
+
+aux_emergences <- bind_rows(aux, aux_old) %>% 
+  mutate(year = case_when(
+    year == "ga97" ~ 1997,
+    year == "ga98" ~ 1998,
+    year == "ga18" ~ 2018,
+    year == "ga19" ~ 2019,
+    year == "ga20" ~ 2020,
+  ))
+aux_emergencesN <- aux_emergences %>% filter(site == "N")
+
+```
+
+## Differencias entre microhabitat en cada año
+```{r, eval=FALSE}
+kw <- aux_emergencesN  %>% 
+  group_by(year) %>% 
+  group_modify(
+    ~broom::tidy(kruskal.test(emergence ~ microhabitat, data=.x))) %>% 
+  mutate(parameter = as.character(parameter))
+
+kw %>% knitr::kable()
+
+my_comparisons <- list(c("wet meadow", "stone"),
+                       c("wet meadow", "upper stone"),
+                       c("wet meadow", "open ground"),
+                       c("wet meadow", "juniper"),
+                       c("stone", "upper stone"),
+                       c("stone", "open ground"),
+                       c("stone", "juniper"),
+                       c("upper stone", "open ground"),
+                       c("upper stone", "juniper"),
+                        c("open ground", "juniper"))
+                       
+ggboxplot(e98, x = "microhabitat", y = "emergence",
+          color = "microhabitat") + 
+  stat_compare_means(comparisons = my_comparisons)
+```
+
+
+
 ```{r}
 compara <- s %>% 
   filter(microhabitat %in% c("open ground", "stone", "wet meadow")) %>% 
@@ -131,12 +312,72 @@ enebritos_compara <- compara_ga %>%
     panel.grid = element_blank()
   )
 
-ggsave(here::here("/analysis/output/ger_acum_J_compara.pdf"),
+ggsave(here::here("/analysis/figures/ger_acum_J_compara.pdf"),
                              width = 14, height = 10, units = "cm")
 enebritos_compara 
+ggsave(here::here("/figures/ger_acum_J_compara.pdf"),
+                             width = 14, height = 10, units = "cm")
 
 ```
 
 
+
+
+#### Final Survival 
+
+head(raw)
+```{r}
+surv20 <- raw %>% dplyr::select(microhabitat, site, survival) %>% 
+  mutate(year = 2020)
+
+surv98 <- raw98 %>% 
+  mutate(survival = round(vivas98/30*100, 2), 
+         year = 1998, 
+         site = "N",
+         microhabitat = case_when(
+           microhabitat == "bajo roca" ~ "stone",
+           microhabitat == "borreguil" ~ "wet meadow",
+           microhabitat == "planta" ~ "juniper",
+           microhabitat == "roca" ~ "upper stone",
+           microhabitat == "suelo desnudo" ~ "open ground"))%>% 
+  dplyr::select(microhabitat, site, survival, year) 
+
+
+end_survival <- bind_rows(surv98, surv20) %>% 
+  filter(site == "N") %>% 
+   filter(microhabitat %in%  c("juniper", "open ground","stone","wet meadow")) %>% 
+  dplyr::select(-site) %>% 
+  group_by(microhabitat, year) %>% 
+  summarise(
+    mean=mean(survival, na.rm = TRUE), 
+    se = sd(survival, na.rm = TRUE)/sqrt(length(.)))
+
+
+
+
+paleto <- c("#009E73", "#E69F00", "#999999","#56B4E9")
+
+
+pos <- position_dodge(width = 0.9)
+plot_survival <- end_survival %>% 
+  ggplot(aes(x = as.factor(year), y=mean, fill = microhabitat, colour = microhabitat,
+             ymin = mean, ymax = mean + se)) +
+  geom_bar(stat="identity", position=pos) + 
+  geom_errorbar(position=pos, width = .2) + 
+  scale_colour_manual(values=paleto) + 
+  scale_fill_manual(values=paleto) + 
+  theme_bw() + 
+  xlab("") + ylab("% End survival") +
+  theme(
+    panel.grid.major = element_blank(), 
+    legend.position = c(.85,.7)
+  ) 
+
+plot_survival
+
+ggsave(here::here("/figures/end_survival_Juniper.jpg"), 
+       width = 16, height = 10, units = "cm")
+
+```
 
 
